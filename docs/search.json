@@ -4,7 +4,11 @@
     "href": "index.html",
     "title": "demo2",
     "section": "",
+<<<<<<< HEAD
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+=======
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\ngit push -u origin main\n\n\nNumérique\n\n\nThis graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nVariable\nMinimum\nMédiane\nMaximum\nMoyenne\nÉcart-type\nNombre de manquants\n\n\n\n\nn_patents\n1\n1\n5238\n9.037665\n105.1943\n0"
+>>>>>>> 542a02e (Include data folder and fix table rendering)
   },
   {
     "objectID": "about.html",
