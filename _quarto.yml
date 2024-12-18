@@ -5,11 +5,11 @@ website:
   title: "Project"
   navbar:
     left:
-      - href: index.qmd
+      - href: /index.html
         text: Home
-      - href: about.qmd
+      - href: /about.html
         text: Statistics
-      - href: Graphs.qmd
+      - href: /graphs.html
         text: Graphs
 
 format:
