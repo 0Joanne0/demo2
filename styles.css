@@ -188,3 +188,31 @@ button:hover, .btn:hover {
     padding: 8px 10px;
   }
 }
+
+/* Navigation Bar Styling */
+.navbar {
+  background-color: #1abc9c; /* Change this to your desired color */
+  padding: 10px 20px; /* Adds spacing inside the bar */
+  border-bottom: 3px solid #16a085; /* Optional: Adds a bottom border */
+}
+
+.navbar a {
+  color: #ffffff; /* White text for links */
+  text-decoration: none; /* Remove underlines */
+  padding: 8px 15px; /* Adds spacing around links */
+  font-size: 1.1rem; /* Slightly larger text */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar a:hover {
+  background-color: #16a085; /* Darker color on hover */
+  color: #ecf0f1; /* Light gray text on hover */
+  border-radius: 5px; /* Slightly rounded corners */
+}
+
+/* Optional: Active Page Highlight */
+.navbar a.active {
+  background-color: #2c3e50; /* Dark blue background for active page */
+  color: #ffffff; /* White text for active page */
+  border-radius: 5px;
+}
