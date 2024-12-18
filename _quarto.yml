@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "Project"
+  title: "Analyse"
   navbar:
     left:
       - href: index.qmd
