@@ -2,6 +2,124 @@
 title: "Statistics"
 ---
 
+## Base BREVETS
+
+<div class="graph-section">
+  <h2>Numérique</h2>
+  <p>This graph shows the relationship between X and Y variables.</p>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load the required libraries
+
+library(readr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Load the data from the CSV file
+base_brevets <- read_delim(
+  "data/base_brevets.csv",
+  delim = ";",
+  col_names = TRUE,
+  col_types = cols(.default = "c"), # Treat all columns as character
+  trim_ws = TRUE
+)
+
+
+
+# Ensure the 'n_patents' column is numeric for statistical calculations
+base_brevets <- base_brevets %>%
+  mutate(n_patents = as.numeric(n_patents))
+
+# Compute summary statistics for the 'n_patents' column
+summary_stats_brevets <- base_brevets %>%
+  summarise(
+    minimum = min(n_patents, na.rm = TRUE),
+    médiane = median(n_patents, na.rm = TRUE),
+    maximum = max(n_patents, na.rm = TRUE),
+    moyenne = mean(n_patents, na.rm = TRUE),
+    `écart-type` = sd(n_patents, na.rm = TRUE),
+    `nombre de manquants` = sum(is.na(n_patents))
+  ) %>%
+  mutate(Variable = "n_patents") %>%
+  relocate(Variable)
+
+# Create an HTML table with styling
+kable(summary_stats_brevets, 
+      format = "html", 
+      col.names = c("Variable", "Minimum", "Médiane", "Maximum", "Moyenne", 
+                    "Écart-type", "Nombre de manquants")) %>%
+  kable_styling(full_width = TRUE, 
+                position = "center", 
+                bootstrap_options = c("striped", "hover", "condensed", 
+                                      "responsive", "bordered")) %>%
+  column_spec(1, background = "#d4e1e1", color = "#406f71", bold = TRUE) %>%
+  row_spec(0, background = "#406f71", color = "white", bold = TRUE)
+
+```
+</div> 
+
+
+
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>This graph shows the relationship between X and Y variables.</p>
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+# Function to extract the top 5 by a specified variable
+top_5_by_variable_combined <- function(data, variable, label) {
+  data %>%
+    group_by(across(all_of(variable))) %>%
+    summarise(`Nombres de brevets` = sum(n_patents, na.rm = TRUE), .groups = "drop") %>%
+    arrange(desc(`Nombres de brevets`)) %>%
+    slice_head(n = 5) %>%
+    mutate(Variable = label) %>%
+    rename(Valeur = !!sym(variable)) %>%
+    mutate(Valeur = as.character(Valeur))
+}
+
+# Generate summaries for each variable
+top_firm <- top_5_by_variable_combined(base_brevets, "firm_name", "Firm Name")
+top_ipc <- top_5_by_variable_combined(base_brevets, "ipc_main_desc", "IPC Main Description")
+top_city <- top_5_by_variable_combined(base_brevets, "addr_city_main", "City")
+top_dept <- top_5_by_variable_combined(base_brevets, "addr_dept_main", "Department")
+
+# Combine all summaries
+summary_combined <- bind_rows(
+  top_firm %>% mutate(Section = "Firm Name"),
+  top_ipc %>% mutate(Section = "IPC Main Description"),
+  top_city %>% mutate(Section = "City"),
+  top_dept %>% mutate(Section = "Department")
+)
+
+# Format the summary table
+summary_combined <- summary_combined %>%
+  select(Section, Valeur, `Nombres de brevets`) %>%
+  arrange(Section)
+
+# Generate the HTML table with styling
+kable(summary_combined %>% select(-Section),
+      format = "html",
+      col.names = c("Valeur", "Nombres de brevets")) %>%
+  kable_styling(
+    full_width = TRUE,
+    position = "center",
+    bootstrap_options = c("striped", "hover", "condensed", "responsive", "bordered")
+  ) %>%
+  column_spec(1, background = "#d4e1e1", color = "#406f71", bold = TRUE) %>%
+  row_spec(0, background = "#406f71", color = "white", bold = TRUE) %>%
+  pack_rows("Firm Name", 1, nrow(top_firm), background = "#406f71", color = "white", bold = TRUE) %>%
+  pack_rows("IPC Main Description", nrow(top_firm) + 1, nrow(top_firm) + nrow(top_ipc),
+            background = "#406f71", color = "white", bold = TRUE) %>%
+  pack_rows("City", nrow(top_firm) + nrow(top_ipc) + 1, nrow(top_firm) + nrow(top_ipc) + nrow(top_city),
+            background = "#406f71", color = "white", bold = TRUE) %>%
+  pack_rows("Department", nrow(top_firm) + nrow(top_ipc) + nrow(top_city) + 1, nrow(summary_combined),
+            background = "#406f71", color = "white", bold = TRUE)
+```
+
+</div> 
+
+
+
 ## Base EMPLOIS
 <div class="graph-section">
   <h2>Numérique </h2>
