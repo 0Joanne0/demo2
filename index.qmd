@@ -6,6 +6,59 @@ This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-```{r}
-1 + 1
+git push -u origin main
+
+<div class="graph-section">
+  <h2>Numérique</h2>
+  <p>This graph shows the relationship between X and Y variables.</p>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load the required libraries
+
+library(readr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Load the data from the CSV file
+base_brevets <- read_delim(
+  "data/base_brevets.csv",
+  delim = ";",
+  col_names = TRUE,
+  col_types = cols(.default = "c"), # Treat all columns as character
+  trim_ws = TRUE
+)
+
+# Ensure the 'n_patents' column is numeric for statistical calculations
+base_brevets <- base_brevets %>%
+  mutate(n_patents = as.numeric(n_patents))
+
+# Compute summary statistics for the 'n_patents' column
+summary_stats_brevets <- base_brevets %>%
+  summarise(
+    minimum = min(n_patents, na.rm = TRUE),
+    médiane = median(n_patents, na.rm = TRUE),
+    maximum = max(n_patents, na.rm = TRUE),
+    moyenne = mean(n_patents, na.rm = TRUE),
+    `écart-type` = sd(n_patents, na.rm = TRUE),
+    `nombre de manquants` = sum(is.na(n_patents))
+  ) %>%
+  mutate(Variable = "n_patents") %>%
+  relocate(Variable)
+
+# Create an HTML table with styling
+kable(summary_stats_brevets, 
+      format = "html", 
+      col.names = c("Variable", "Minimum", "Médiane", "Maximum", "Moyenne", 
+                    "Écart-type", "Nombre de manquants")) %>%
+  kable_styling(full_width = TRUE, 
+                position = "center", 
+                bootstrap_options = c("striped", "hover", "condensed", 
+                                      "responsive", "bordered")) %>%
+  column_spec(1, background = "#d4e1e1", color = "#406f71", bold = TRUE) %>%
+  row_spec(0, background = "#406f71", color = "white", bold = TRUE)
+
 ```
+</div> 
+
+
