@@ -1,1 +1,190 @@
 /* css styles */
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7f6; /* Light modern background */
+  color: #333; /* Dark gray text */
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50; /* Dark blue for headings */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #1abc9c; /* Teal for the main title */
+}
+
+h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #1abc9c; /* Teal underlines */
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #3498db; /* Light blue for subheadings */
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Links */
+a {
+  color: #2980b9; /* Blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #1abc9c; /* Change color on hover */
+}
+
+/* Code Blocks */
+pre, code {
+  background-color: #ecf0f1; /* Light gray for code */
+  color: #2c3e50; /* Dark blue text */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #1abc9c; /* Teal for table headers */
+  color: #fff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Light gray hover effect */
+}
+
+/* Buttons */
+button, .btn {
+  background-color: #1abc9c; /* Teal background */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button:hover, .btn:hover {
+  background-color: #16a085; /* Darker teal */
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #2c3e50; /* Dark blue navbar */
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.navbar a {
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.navbar a:hover {
+  background-color: #1abc9c; /* Teal on hover */
+  border-radius: 5px;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+.footer a {
+  color: #1abc9c;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #16a085;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Graph Sections */
+.graph-section {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .navbar a {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+
+  button, .btn {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}
