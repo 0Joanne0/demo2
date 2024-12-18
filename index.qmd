@@ -24,6 +24,8 @@ base_brevets <- read_delim(
   trim_ws = TRUE
 )
 
+
+
 # Ensure the 'n_patents' column is numeric for statistical calculations
 base_brevets <- base_brevets %>%
   mutate(n_patents = as.numeric(n_patents))
