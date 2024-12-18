@@ -9,6 +9,8 @@ website:
         text: Home
       - href: about.qmd
         text: Statistics
+      - href: Graphs.qmd
+        text: Graphs
 
 format:
   html:
