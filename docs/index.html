@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>demo2</title>
+<title>demo2 - DEDE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-<<<<<<< HEAD
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { line-height: 1.25; }
@@ -55,8 +54,6 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-=======
->>>>>>> 542a02e (Include data folder and fix table rendering)
 </style>
 
 
@@ -103,13 +100,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<<<<<<< HEAD
-=======
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
->>>>>>> 542a02e (Include data folder and fix table rendering)
 
 
 <link rel="stylesheet" href="styles.css">
@@ -159,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">demo2</h1>
+<h1 class="title">DEDE</h1>
 </div>
 
 
@@ -176,15 +170,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<<<<<<< HEAD
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-=======
-<p>git push -u origin main</p>
 <div class="graph-section">
 <h2 class="anchored">
 Numérique
@@ -214,8 +199,8 @@ This graph shows the relationship between X and Y variables.
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">5238</td>
 <td style="text-align: right;">9.037665</td>
-<td style="text-align: right;">105.1943</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">105.192</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
@@ -223,7 +208,173 @@ This graph shows the relationship between X and Y variables.
 
 
 </div>
->>>>>>> 542a02e (Include data folder and fix table rendering)
+</div>
+</div>
+<div class="graph-section">
+<h2 class="anchored">
+Caractères
+</h2>
+<p>
+This graph shows the relationship between X and Y variables.
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to extract the top 5 by a specified variable</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>top_5_by_variable_combined <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, label) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(variable))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="st">`</span><span class="at">Nombres de brevets</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sum</span>(n_patents, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">Nombres de brevets</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Variable =</span> label) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Valeur =</span> <span class="sc">!!</span><span class="fu">sym</span>(variable)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Valeur =</span> <span class="fu">as.character</span>(Valeur))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate summaries for each variable</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>top_firm <span class="ot">&lt;-</span> <span class="fu">top_5_by_variable_combined</span>(base_brevets, <span class="st">"firm_name"</span>, <span class="st">"Firm Name"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>top_ipc <span class="ot">&lt;-</span> <span class="fu">top_5_by_variable_combined</span>(base_brevets, <span class="st">"ipc_main_desc"</span>, <span class="st">"IPC Main Description"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>top_city <span class="ot">&lt;-</span> <span class="fu">top_5_by_variable_combined</span>(base_brevets, <span class="st">"addr_city_main"</span>, <span class="st">"City"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>top_dept <span class="ot">&lt;-</span> <span class="fu">top_5_by_variable_combined</span>(base_brevets, <span class="st">"addr_dept_main"</span>, <span class="st">"Department"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all summaries</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>summary_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  top_firm <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Section =</span> <span class="st">"Firm Name"</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  top_ipc <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Section =</span> <span class="st">"IPC Main Description"</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  top_city <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Section =</span> <span class="st">"City"</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  top_dept <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Section =</span> <span class="st">"Department"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Format the summary table</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>summary_combined <span class="ot">&lt;-</span> summary_combined <span class="sc">%&gt;%</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Section, Valeur, <span class="st">`</span><span class="at">Nombres de brevets</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Section)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the HTML table with styling</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(summary_combined <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Section),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Valeur"</span>, <span class="st">"Nombres de brevets"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>, <span class="st">"bordered"</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">background =</span> <span class="st">"#d4e1e1"</span>, <span class="at">color =</span> <span class="st">"#406f71"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"#406f71"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Firm Name"</span>, <span class="dv">1</span>, <span class="fu">nrow</span>(top_firm), <span class="at">background =</span> <span class="st">"#406f71"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"IPC Main Description"</span>, <span class="fu">nrow</span>(top_firm) <span class="sc">+</span> <span class="dv">1</span>, <span class="fu">nrow</span>(top_firm) <span class="sc">+</span> <span class="fu">nrow</span>(top_ipc),</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">background =</span> <span class="st">"#406f71"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"City"</span>, <span class="fu">nrow</span>(top_firm) <span class="sc">+</span> <span class="fu">nrow</span>(top_ipc) <span class="sc">+</span> <span class="dv">1</span>, <span class="fu">nrow</span>(top_firm) <span class="sc">+</span> <span class="fu">nrow</span>(top_ipc) <span class="sc">+</span> <span class="fu">nrow</span>(top_city),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">background =</span> <span class="st">"#406f71"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Department"</span>, <span class="fu">nrow</span>(top_firm) <span class="sc">+</span> <span class="fu">nrow</span>(top_ipc) <span class="sc">+</span> <span class="fu">nrow</span>(top_city) <span class="sc">+</span> <span class="dv">1</span>, <span class="fu">nrow</span>(summary_combined),</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>            <span class="at">background =</span> <span class="st">"#406f71"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-bordered caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(64, 111, 113, 255) !important;">Valeur</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold; color: white !important; background-color: rgba(64, 111, 113, 255) !important;">Nombres de brevets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="5">
+<td colspan="2" style="border-bottom: 1px solid; color: white !important; background-color: rgba(64, 111, 113, 255) !important"><strong>Firm Name</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Paris</td>
+<td style="text-align: right;">59566</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Boulogne Billancourt</td>
+<td style="text-align: right;">12582</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Courbevoie</td>
+<td style="text-align: right;">10102</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Issy les Moulineaux</td>
+<td style="text-align: right;">6732</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Bobigny</td>
+<td style="text-align: right;">6492</td>
+</tr>
+<tr class="odd" data-grouplength="5">
+<td colspan="2" style="border-bottom: 1px solid; color: white !important; background-color: rgba(64, 111, 113, 255) !important"><strong>IPC Main Description</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">75</td>
+<td style="text-align: right;">58928</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">92</td>
+<td style="text-align: right;">46378</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">93</td>
+<td style="text-align: right;">9552</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">78</td>
+<td style="text-align: right;">8826</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">69</td>
+<td style="text-align: right;">7994</td>
+</tr>
+<tr class="odd" data-grouplength="5">
+<td colspan="2" style="border-bottom: 1px solid; color: white !important; background-color: rgba(64, 111, 113, 255) !important"><strong>City</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">CEA</td>
+<td style="text-align: right;">10476</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">CNRS</td>
+<td style="text-align: right;">8638</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">ALCATEL</td>
+<td style="text-align: right;">7988</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">VALEO</td>
+<td style="text-align: right;">6478</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">THOMSON</td>
+<td style="text-align: right;">6058</td>
+</tr>
+<tr class="odd" data-grouplength="5">
+<td colspan="2" style="border-bottom: 1px solid; color: white !important; background-color: rgba(64, 111, 113, 255) !important"><strong>Department</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Preparations for medical, dental, or toilet purposes (devices or methods specially adapted for bringing pharmaceutical products into particular physical or administering forms a61j0003000000; chemical aspects of, or use of materials for deodorisation of air, for disinfection or sterilisation, or for bandages, dressings, absorbent pads or surgical articles a61l)</td>
+<td style="text-align: right;">34618</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Semiconductor devices; electric solid state devices not otherwise provided for (use of semiconductor devices for measuring g01; resistors in general h01c; magnets, inductors, transformers h01f; capacitors in general h01g; electrolytic devices h01g0009000000; batteries, accumulators h01m; waveguides, resonators, or lines of the waveguide type h01p; line connectors, current collectors h01r; stimulated-emission devices h01s; electromechanical resonators h03h; loudspeakers, microphones, gramophone pick-ups or like acoustic electromechanical transducers h04r; electric light sources in general h05b; printed circuits, hybrid circuits, casings or constructional details of electrical apparatus, manufacture of assemblages of electrical components h05k; use of semiconductor devices in circuits having a particular application, see the subclass for the application);</td>
+<td style="text-align: right;">12986</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Wireless communication networks</td>
+<td style="text-align: right;">10552</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Pictorial communication, e.g. Television</td>
+<td style="text-align: right;">8468</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; color: rgba(64, 111, 113, 255) !important; background-color: rgba(212, 225, 225, 255) !important; padding-left: 2em;" data-indentlevel="1">Non-portable lighting devices or systems thereof (burners f23d; electric aspects or elements, see section h, e.g. electric light sources h01j, h01k, h05b)</td>
+<td style="text-align: right;">6600</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
 </div>
 </div>
 
