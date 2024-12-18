@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 firm_name;n_offres;sector_main;avg_req_exp;top_skill_req;avg_wage;addr_dept_main
 1DSOLUTIONS;2;;;Equipe Et Collaboration;36400;75
 1GLINK CONSULTING;2;;;Autonome, Equipe Et Collaboration, Python, Sql;48750;75
@@ -709,7 +708,7 @@ XFAB;44;;;Anglais, Communication, Equipe Et Collaboration, Excel, Français, Sta
 XL CATLIN;1;;;Communication, Equipe Et Collaboration;;75
 XPDEEP;1;;;Apprentissage Profond, Autonome;;38
 ZO;1;;;Anglais, Aws, Communication, Compétences En Présentation, Excel, Français, Git, Python, Statistique;;75
-=======
+=======;;;;;;
 firm_name;n_offres;sector_main;avg_req_exp;top_skill_req;avg_wage;addr_dept_main
 1DSOLUTIONS;2;;;Equipe Et Collaboration;36400;75
 1GLINK CONSULTING;2;;;Autonome, Equipe Et Collaboration, Python, Sql;48750;75
@@ -1420,4 +1419,4 @@ XFAB;44;;;Anglais, Communication, Equipe Et Collaboration, Excel, Français, Sta
 XL CATLIN;1;;;Communication, Equipe Et Collaboration;;75
 XPDEEP;1;;;Apprentissage Profond, Autonome;;38
 ZO;1;;;Anglais, Aws, Communication, Compétences En Présentation, Excel, Français, Git, Python, Statistique;;75
->>>>>>> 542a02e (Include data folder and fix table rendering)
+>>>>>>> 542a02e (Include data folder and fix table rendering);;;;;;
