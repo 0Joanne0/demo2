@@ -2,21 +2,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "DEDE",
+    "title": "Analyse emploie brevet",
     "section": "",
     "text": "Numérique\n\n\nThis graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nVariable\nMinimum\nMédiane\nMaximum\nMoyenne\nÉcart-type\nNombre de manquants\n\n\n\n\nn_patents\n1\n1\n5238\n9.037665\n105.192\n3\n\n\n\n\n\n\n\n\n\n\n\nCaractères\n\n\nThis graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nValeur\nNombres de brevets\n\n\n\n\nFirm Name\n\n\nParis\n59566\n\n\nBoulogne Billancourt\n12582\n\n\nCourbevoie\n10102\n\n\nIssy les Moulineaux\n6732\n\n\nBobigny\n6492\n\n\nIPC Main Description\n\n\n75\n58928\n\n\n92\n46378\n\n\n93\n9552\n\n\n78\n8826\n\n\n69\n7994\n\n\nCity\n\n\nCEA\n10476\n\n\nCNRS\n8638\n\n\nALCATEL\n7988\n\n\nVALEO\n6478\n\n\nTHOMSON\n6058\n\n\nDepartment\n\n\nPreparations for medical, dental, or toilet purposes (devices or methods specially adapted for bringing pharmaceutical products into particular physical or administering forms a61j0003000000; chemical aspects of, or use of materials for deodorisation of air, for disinfection or sterilisation, or for bandages, dressings, absorbent pads or surgical articles a61l)\n34618\n\n\nSemiconductor devices; electric solid state devices not otherwise provided for (use of semiconductor devices for measuring g01; resistors in general h01c; magnets, inductors, transformers h01f; capacitors in general h01g; electrolytic devices h01g0009000000; batteries, accumulators h01m; waveguides, resonators, or lines of the waveguide type h01p; line connectors, current collectors h01r; stimulated-emission devices h01s; electromechanical resonators h03h; loudspeakers, microphones, gramophone pick-ups or like acoustic electromechanical transducers h04r; electric light sources in general h05b; printed circuits, hybrid circuits, casings or constructional details of electrical apparatus, manufacture of assemblages of electrical components h05k; use of semiconductor devices in circuits having a particular application, see the subclass for the application);\n12986\n\n\nWireless communication networks\n10552\n\n\nPictorial communication, e.g. Television\n8468\n\n\nNon-portable lighting devices or systems thereof (burners f23d; electric aspects or elements, see section h, e.g. electric light sources h01j, h01k, h05b)\n6600"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Statistics",
     "section": "",
     "text": "This graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nVariables\nMinimum\nMédiane\nMaximum\nMoyenne\nÉcart-type\nNombre de manquants\n\n\n\n\nn_offres\n1\n1\n68\n4.286319\n8.369963\n3\n\n\navg_wage\n9000\n45000\n90000\n44984.029868\n13857.911701\n1099"
   },
   {
     "objectID": "about.html#base-emplois",
     "href": "about.html#base-emplois",
-    "title": "About",
+    "title": "Statistics",
     "section": "",
     "text": "This graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nVariables\nMinimum\nMédiane\nMaximum\nMoyenne\nÉcart-type\nNombre de manquants\n\n\n\n\nn_offres\n1\n1\n68\n4.286319\n8.369963\n3\n\n\navg_wage\n9000\n45000\n90000\n44984.029868\n13857.911701\n1099"
   }
