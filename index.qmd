@@ -63,7 +63,7 @@ kable(summary_stats_brevets,
 <div class="graph-section">
   <h2>Caractères </h2>
   <p>This graph shows the relationship between X and Y variables.</p>
-```{r}
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Function to extract the top 5 by a specified variable
 top_5_by_variable_combined <- function(data, variable, label) {
   data %>%

@@ -2,8 +2,81 @@
 title: "About"
 ---
 
-About this site
+## Base EMPLOIS
+<div class="graph-section">
+  <h2>Numérique </h2>
+  <p>This graph shows the relationship between X and Y variables.</p>
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+# Load the required libraries
+library(readr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
 
-```{r}
-1 + 1
+# Load the data from the CSV file
+base_emp <- read_delim(
+  "data/base_emp.csv",
+  delim = ";",
+  col_names = TRUE,
+  col_types = cols(.default = "c"), # Treat all columns as character
+  trim_ws = TRUE
+)
+
+# Ensure relevant columns are numeric for calculations
+base_emp <- base_emp %>%
+  mutate(
+    n_offres = as.numeric(n_offres),
+    avg_wage = as.numeric(avg_wage)
+  )
+
+# Calculate summary statistics for 'n_offres'
+summary_stats_offres <- base_emp %>%
+  ungroup() %>%
+  summarise(
+    minimum = min(n_offres, na.rm = TRUE),
+    médiane = median(n_offres, na.rm = TRUE),
+    maximum = max(n_offres, na.rm = TRUE),
+    moyenne = mean(n_offres, na.rm = TRUE),
+    `écart-type` = sd(n_offres, na.rm = TRUE),
+    `nombre de manquants` = sum(is.na(n_offres))
+  ) %>%
+  mutate(Variable = "n_offres") %>%
+  relocate(Variable)
+
+# Calculate summary statistics for 'avg_wage'
+summary_stats_wage <- base_emp %>%
+  ungroup() %>%
+  summarise(
+    minimum = min(avg_wage, na.rm = TRUE),
+    médiane = median(avg_wage, na.rm = TRUE),
+    maximum = max(avg_wage, na.rm = TRUE),
+    moyenne = mean(avg_wage, na.rm = TRUE),
+    `écart-type` = sd(avg_wage, na.rm = TRUE),
+    `nombre de manquants` = sum(is.na(avg_wage))
+  ) %>%
+  mutate(Variable = "avg_wage") %>%
+  relocate(Variable)
+
+# Combine summary statistics
+summary_stats_emp <- bind_rows(summary_stats_offres, summary_stats_wage)
+
+# Rename columns for clarity
+colnames(summary_stats_emp) <- c(
+  "Variables", "Minimum", "Médiane", "Maximum", 
+  "Moyenne", "Écart-type", "Nombre de manquants"
+)
+
+# Create a formatted HTML table
+kable(summary_stats_emp,
+      format = "html",
+      col.names = colnames(summary_stats_emp)) %>%
+  kable_styling(
+    full_width = TRUE,
+    position = "center",
+    bootstrap_options = c("striped", "hover", "condensed", "responsive", "bordered")
+  ) %>%
+  column_spec(1, background = "#d4e1e1", color = "#406f71", bold = TRUE) %>%
+  row_spec(0, background = "#406f71", color = "white", bold = TRUE)
+
 ```
+</div> 
