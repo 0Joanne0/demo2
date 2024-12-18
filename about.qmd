@@ -80,3 +80,91 @@ kable(summary_stats_emp,
 
 ```
 </div> 
+
+
+
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>This graph shows the relationship between X and Y variables.</p>
+```{r}
+library(tidyr)
+library(stringr)
+# Ensure relevant columns are numeric for calculations
+base_emp <- base_emp %>%
+  mutate(
+    avg_wage = as.numeric(avg_wage),
+    n_offres = as.numeric(n_offres)
+  )
+
+# Function to expand and clean sector data
+expand_sectors <- function(data, sector_column) {
+  data |>
+    mutate(sector_main = str_split(sector_main, ",")) |> 
+    unnest(sector_main) |> 
+    mutate(sector_main = str_trim(sector_main))
+}
+
+
+# Expand 'sector_main' column
+base_emp_expanded <- expand_sectors(base_emp, "sector_main")
+
+# Function to compute top 5 based on salary
+top_5_by_variable_combined_salary <- function(data, variable, label) {
+  data %>%
+    group_by(across(all_of(variable))) %>%
+    summarise(`Salaire moyen` = mean(avg_wage, na.rm = TRUE), .groups = "drop") %>%
+    arrange(desc(`Salaire moyen`)) %>%
+    slice_head(n = 5) %>%
+    mutate(Variable = label) %>%
+    rename(Valeur = !!sym(variable)) %>%
+    mutate(Valeur = as.character(Valeur))
+}
+
+# Generate top 5 summaries for salary
+top_firm_salary <- top_5_by_variable_combined_salary(base_emp, "firm_name", "Firm Name")
+top_sector_salary <- top_5_by_variable_combined_salary(base_emp_expanded, "sector_main", "Sector Main")
+top_dept_salary <- top_5_by_variable_combined_salary(base_emp, "addr_dept_main", "Department")
+
+# Combine all salary summaries
+summary_combined_salary <- bind_rows(
+  top_firm_salary %>% mutate(Section = "Entreprise"),
+  top_sector_salary %>% mutate(Section = "Secteur principal"),
+  top_dept_salary %>% mutate(Section = "Département")
+)
+
+# Prepare the combined summary table
+summary_combined_salary <- summary_combined_salary %>%
+  select(Section, Valeur, `Salaire moyen`) %>%
+  arrange(Section)
+
+# Create the styled HTML table
+kable(summary_combined_salary %>% select(-Section),
+      format = "html",
+      col.names = c("", "Salaire moyen")) %>%
+  kable_styling(
+    full_width = TRUE,
+    position = "center",
+    bootstrap_options = c("striped", "hover", "condensed", "responsive", "bordered")
+  ) %>%
+  column_spec(1, background = "#d4e1e1", color = "#406f71", bold = TRUE) %>%
+  row_spec(0, background = "#406f71", color = "white", bold = TRUE) %>%
+  pack_rows("Département", 
+            start_row = 1, 
+            end_row = nrow(top_firm_salary), 
+            background = "#406f71", 
+            color = "white", 
+            bold = TRUE) %>%
+  pack_rows("Entreprise", 
+            start_row = nrow(top_firm_salary) + 1, 
+            end_row = nrow(top_firm_salary) + nrow(top_sector_salary), 
+            background = "#406f71", 
+            color = "white", 
+            bold = TRUE) %>%
+  pack_rows("Secteur principal", 
+            start_row = nrow(top_firm_salary) + nrow(top_sector_salary) + 1, 
+            end_row = nrow(summary_combined_salary), 
+            background = "#406f71", 
+            color = "white", 
+            bold = TRUE)
+```
+</div> 
