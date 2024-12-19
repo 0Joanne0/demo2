@@ -77,7 +77,9 @@ library(wordcloud2)
 library(dplyr)
 library(scales)
 ```
-
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 #### Compétences pondérées par le salaire
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -96,7 +98,7 @@ competences_salary <- competences_salary |>
          (mean_salary))
 
 wordcloud2(data = competences_salary,
-           size = 0.5,
+          size = 0.4,
            color = competences_salary$color, 
            backgroundColor = "white",
            rotateRatio = 0,
@@ -104,45 +106,52 @@ wordcloud2(data = competences_salary,
            fontWeight = "bold")
 
 
-
 ```
-### Compétences Pondérées par les Brevets
 
+</div> 
+
+### Compétences Pondérées par les Brevets
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
+# Ensure necessary libraries are loaded
 library(dplyr)
 library(tidyr)
 library(scales)
-library(RColorBrewer)
 library(wordcloud2)
 library(htmlwidgets)
 
-# Prepare the data
-competences_patents <- base_emp_inno |>
-  filter(!is.na(n_patents), !is.na(top_skill_req)) |>
+# Filter and process the data
+competences_salary <- base_emp_inno |>
+  filter(!is.na(avg_wage), !is.na(top_skill_req)) |>
   mutate(skills_split = strsplit(top_skill_req, ",\\s*")) |>
   unnest(skills_split) |>
   group_by(skills_split) |>
-  summarise(total_patents = sum(n_patents, na.rm = TRUE)) |>
+  summarise(mean_salary = mean(avg_wage, na.rm = TRUE)) |>
   filter(!is.na(skills_split) & skills_split != "NA") |>
-  arrange(desc(total_patents))
+  arrange(desc(mean_salary))
 
-competences_patents <- competences_patents |>
+# Prepare color column with shades of blue
+competences_salary <- competences_salary |>
   mutate(
-    scaled_patents = log10(total_patents + 1),
+    scaled_salary = log10(mean_salary + 1),  # Scale salary to avoid large jumps
     color = scales::col_numeric(
-      palette = RColorBrewer::brewer.pal(9, "Blues")[2:9],
-      domain = range(total_patents, na.rm = TRUE)
-    )(total_patents)
+      palette = c("#D4E1E1", "#71B6AF", "#406F71", "#1D4E5F"),  # Custom blue shades
+      domain = range(mean_salary, na.rm = TRUE)
+    )(mean_salary)
   )
 
-# Save word cloud as HTML
-wordcloud_file <- "competences_patents_wordcloud.html"
+# Save the word cloud to an HTML file
+wordcloud_file <- "competences_salary_wordcloud.html"
+
+# Generate and save the word cloud
 saveWidget(
   wordcloud2(
-    data = competences_patents |> select(skills_split, scaled_patents),
+    data = competences_salary %>% select(skills_split, scaled_salary),
     size = 0.5,
-    color = competences_patents$color,
+    color = competences_salary$color,  # Use the custom blue palette
     backgroundColor = "white",
     rotateRatio = 0,
     gridSize = 10,
@@ -151,11 +160,18 @@ saveWidget(
   wordcloud_file,
   selfcontained = TRUE
 )
+
 ```
 
 <iframe src="competences_patents_wordcloud.html" width="100%" height="600px" style="border:none;"></iframe>
 
+
+</div> 
 ### Comparaison entre le nombre de brevets et d'offres d'emploi par secteur IPC 
+
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(dplyr)
@@ -217,8 +233,10 @@ combined_plot + plot_annotation(
 
 
 ```
-
-
+</div>
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Filtrer les données
@@ -243,7 +261,12 @@ ggplot(filtered_data, aes(x = avg_req_exp, y = avg_wage)) +
   theme_minimal() +
   theme(legend.position = "none")
 ```
+</div>
+
 ### Matrice de corrélation
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 library(corrplot)
@@ -270,6 +293,11 @@ addCoef.col = "white",
 font.lab = 2)
 
 ```
+</div>
+
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 palette_custom <- c("#406F71", "#71B6AF", "#9DC8C8", "#D4E1E1")
 
@@ -291,7 +319,11 @@ theme(panel.grid.major = element_line(color = palette_custom[4]),
 panel.grid.minor = element_blank())
 
 ```
+</div>
 
+<div class="graph-section">
+  <h2>Caractères </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Step 1: Separate rows and remove NAs
@@ -337,4 +369,4 @@ ggplot(sector_skill, aes(x = sector_main, y = top_skill_req, fill = count)) +
   )
 
 ```
-
+</div>
