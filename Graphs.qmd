@@ -1,8 +1,14 @@
-## ANALYSE BIVARIES
-### Y a-t-il des compétences associées avec plus d’innovation des entreprises?
+## ANALYSES BIVARIÉES
+<div class="problem-section">
+  <h2>Problématique</h2>
+  <p>
+    Y a-t-il des compétences associées avec plus d’innovation des entreprises?
+  </p>
+</div>
+
+
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+  <h2>Graphe 1</h2>
   
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(readr)
@@ -64,7 +70,6 @@ Le graphique ci-dessus illustre les compétences les plus fréquemment associée
 D'autres compétences transversales, comme **"Communication"**, **"Rapport"**, et **"Programmation"**, complètent le tableau. Ces compétences démontrent que l'innovation repose sur une combinaison équilibrée de capacités relationnelles, techniques, et organisationnelles.
 
 En conclusion, ce graphique met en lumière que l'innovation est un processus complexe et multidimensionnel. Elle nécessite une synergie entre des compétences interpersonnelles, linguistiques et techniques. Les entreprises doivent ainsi créer des environnements collaboratifs tout en investissant dans le développement des compétences clés pour maintenir leur avantage compétitif.
-
 </div> 
 ### Word cloud
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}

@@ -1,12 +1,14 @@
----
-title: "Statistics"
----
+## Statistiques descriptives
+
+Dans cette section, nous allons procéder à une analyse statistique descriptive.
+L'objectif est de fournir une vue d'ensemble des caractéristiques des données, en calculant les principales mesures de tendance centrale et de dispersion pour les variables numériques, ainsi que les valeurs les plus fréquentes pour les variables qualitatives.
+
 
 ## Base BREVETS
 
 <div class="graph-section">
   <h2>Numérique</h2>
-  <p>This graph shows the relationship between X and Y variables.</p>
+  
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 # Load the required libraries
@@ -59,13 +61,15 @@ kable(summary_stats_brevets,
   row_spec(0, background = "#406f71", color = "white", bold = TRUE)
 
 ```
+
+Le fait que le minimum et la médiane soient de 1 indique que **la moitié des entités n'ont déposé qu'un seul brevet**, soulignant une activité d'innovation limitée pour la majorité. Cependant, la moyenne de 9,04 et surtout l'écart-type élevé de 105,19 révèlent une **forte disparité**, avec un petit nombre d'entités déposant un grand nombre de brevets, atteignant un maximum impressionnant de 5 238 brevets.
 </div> 
 
 
 
 <div class="graph-section">
   <h2>Caractères </h2>
-  <p>This graph shows the relationship between X and Y variables.</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Function to extract the top 5 by a specified variable
 ### Caractères 
@@ -143,7 +147,7 @@ kable(summary_combined |> select(-Section),
 ## Base EMPLOIS
 <div class="graph-section">
   <h2>Numérique </h2>
-  <p>This graph shows the relationship between X and Y variables.</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Load the required libraries
 library(readr)
@@ -204,12 +208,15 @@ kable(summary_stats_emp,
   row_spec(0, background = "#406f71", color = "white", bold = TRUE)
 
 ```
+
+Pour le **nombre d'offres** (n_offres), les données révèlent une forte concentration autour de valeurs faibles, puisque la médiane et le minimum sont de 1, et la moyenne est de 4,29, bien inférieure au maximum de 68. Cela indique que **la majorité des entités publient très peu d'offres, avec seulement quelques-unes affichant un grand nombre d'opportunités.**
+En ce qui concerne le **salaire moyen annuel** (avg_wage), les salaires sont plus équilibrés, avec une médiane de 45 000 proche de la moyenne de 44 984,03, tandis que l'écart-type de 13 879,55 reflète une dispersion modérée des données. Cela suggère que **la plupart des salaires se situent dans une plage relativement cohérente, bien que des valeurs extrêmes soient présentes.**
 </div> 
 
 
 <div class="graph-section">
   <h2>Caractères </h2>
-  <p>This graph shows the relationship between X and Y variables.</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyr)
 library(stringr)
@@ -298,7 +305,7 @@ kable(summary_combined_salary %>% select(-Section),
 ## Base EMPLOIS-INNOVATIONS
 <div class="graph-section">
   <h2>Caractères </h2>
-  <p>This graph shows the relationship between X and Y variables.</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 # Load the required library
@@ -388,5 +395,10 @@ kable(summary_stats_all,
 
 ```
 
+Pour les **brevets** (n_patents), bien que la médiane soit de 1, ce qui signifie qu'au moins la moitié des entités ont déposé un brevet, la moyenne très basse (8,56) et l'écart-type élevé (102,39) révèlent qu'**une minorité d'entités détient un nombre disproportionné de brevets, créant une forte disparité.**
+
+En ce qui concerne le **nombre d'offres** (n_offres), la médiane et la moyenne proches de 0 indiquent que la majorité des entités n'ont publié aucune ou très peu d'offres d'emploi, malgré un maximum atteignant 68. Cela suggère **une concentration des offres sur un petit nombre d'entités actives.**
+
+Enfin, pour le **salaire moyen annuel** (avg_wage), les valeurs sont plus homogènes, avec une médiane (45 000) proche de la moyenne (44 984,03) et un écart-type modéré (13 879,55). Cependant, la présence de 11 726 valeurs manquantes peut limiter l'interprétation et nécessiter une prise en compte lors de l'analyse globale.
 </div> 
 

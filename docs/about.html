@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analyse - Statistics</title>
+<title>Analyse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +124,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#base-brevets" id="toc-base-brevets" class="nav-link active" data-scroll-target="#base-brevets">Base BREVETS</a></li>
+  <li><a href="#statistiques-descriptives" id="toc-statistiques-descriptives" class="nav-link active" data-scroll-target="#statistiques-descriptives">Statistiques descriptives</a></li>
+  <li><a href="#base-brevets" id="toc-base-brevets" class="nav-link" data-scroll-target="#base-brevets">Base BREVETS</a></li>
   <li><a href="#base-emplois" id="toc-base-emplois" class="nav-link" data-scroll-target="#base-emplois">Base EMPLOIS</a></li>
   <li><a href="#base-emplois-innovations" id="toc-base-emplois-innovations" class="nav-link" data-scroll-target="#base-emplois-innovations">Base EMPLOIS-INNOVATIONS</a></li>
   </ul>
@@ -133,34 +134,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Statistics</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="statistiques-descriptives" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-descriptives">Statistiques descriptives</h2>
+<p>Dans cette section, nous allons procéder à une analyse statistique descriptive. L’objectif est de fournir une vue d’ensemble des caractéristiques des données, en calculant les principales mesures de tendance centrale et de dispersion pour les variables numériques, ainsi que les valeurs les plus fréquentes pour les variables qualitatives.</p>
+</section>
 <section id="base-brevets" class="level2">
 <h2 class="anchored" data-anchor-id="base-brevets">Base BREVETS</h2>
 <div class="graph-section">
 <h2 class="anchored">
 Numérique
 </h2>
-<p>
-This graph shows the relationship between X and Y variables.
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -193,14 +179,12 @@ This graph shows the relationship between X and Y variables.
 
 </div>
 </div>
+<p>Le fait que le minimum et la médiane soient de 1 indique que <strong>la moitié des entités n’ont déposé qu’un seul brevet</strong>, soulignant une activité d’innovation limitée pour la majorité. Cependant, la moyenne de 9,04 et surtout l’écart-type élevé de 105,19 révèlent une <strong>forte disparité</strong>, avec un petit nombre d’entités déposant un grand nombre de brevets, atteignant un maximum impressionnant de 5 238 brevets.</p>
 </div>
 <div class="graph-section">
 <h2 class="anchored">
 Caractères
 </h2>
-<p>
-This graph shows the relationship between X and Y variables.
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -319,9 +303,6 @@ This graph shows the relationship between X and Y variables.
 <h2 class="anchored">
 Numérique
 </h2>
-<p>
-This graph shows the relationship between X and Y variables.
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -363,14 +344,12 @@ This graph shows the relationship between X and Y variables.
 
 </div>
 </div>
+<p>Pour le <strong>nombre d’offres</strong> (n_offres), les données révèlent une forte concentration autour de valeurs faibles, puisque la médiane et le minimum sont de 1, et la moyenne est de 4,29, bien inférieure au maximum de 68. Cela indique que <strong>la majorité des entités publient très peu d’offres, avec seulement quelques-unes affichant un grand nombre d’opportunités.</strong> En ce qui concerne le <strong>salaire moyen annuel</strong> (avg_wage), les salaires sont plus équilibrés, avec une médiane de 45 000 proche de la moyenne de 44 984,03, tandis que l’écart-type de 13 879,55 reflète une dispersion modérée des données. Cela suggère que <strong>la plupart des salaires se situent dans une plage relativement cohérente, bien que des valeurs extrêmes soient présentes.</strong></p>
 </div>
 <div class="graph-section">
 <h2 class="anchored">
 Caractères
 </h2>
-<p>
-This graph shows the relationship between X and Y variables.
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -466,9 +445,6 @@ This graph shows the relationship between X and Y variables.
 <h2 class="anchored">
 Caractères
 </h2>
-<p>
-This graph shows the relationship between X and Y variables.
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -519,6 +495,9 @@ This graph shows the relationship between X and Y variables.
 
 </div>
 </div>
+<p>Pour les <strong>brevets</strong> (n_patents), bien que la médiane soit de 1, ce qui signifie qu’au moins la moitié des entités ont déposé un brevet, la moyenne très basse (8,56) et l’écart-type élevé (102,39) révèlent qu’<strong>une minorité d’entités détient un nombre disproportionné de brevets, créant une forte disparité.</strong></p>
+<p>En ce qui concerne le <strong>nombre d’offres</strong> (n_offres), la médiane et la moyenne proches de 0 indiquent que la majorité des entités n’ont publié aucune ou très peu d’offres d’emploi, malgré un maximum atteignant 68. Cela suggère <strong>une concentration des offres sur un petit nombre d’entités actives.</strong></p>
+<p>Enfin, pour le <strong>salaire moyen annuel</strong> (avg_wage), les valeurs sont plus homogènes, avec une médiane (45 000) proche de la moyenne (44 984,03) et un écart-type modéré (13 879,55). Cependant, la présence de 11 726 valeurs manquantes peut limiter l’interprétation et nécessiter une prise en compte lors de l’analyse globale.</p>
 </div>
 
 
