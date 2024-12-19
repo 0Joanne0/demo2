@@ -16,6 +16,22 @@
 library(ggplot2)
 library(dplyr)
 library(patchwork)
+library(readr)
+
+
+
+base_emp_inno <- read_delim(
+  "data/base_emp_inno.csv",  # Path to the CSV file
+  delim = ";",              # Delimiter used in the CSV file
+  col_names = TRUE,         # Use the first row as column names
+  col_types = cols(
+    .default = "c",         # Treat all columns as character by default
+    n_patents = "n",        # Parse 'n_patents' as numeric
+    n_offres = "n",         # Parse 'n_offres' as numeric
+    avg_wage = "n"          # Parse 'avg_wage' as numeric
+  ),
+  trim_ws = TRUE            # Trim whitespace from character strings
+)
 
 ipc_labels <- c("A" = "Besoins Humains",
                 "B" = "Opérations/Transport",
