@@ -188,6 +188,10 @@ colnames(summary_stats_emp) <- c("Variables", "Minimum", "Médiane", "Maximum",
                                  "Moyenne", "Écart-type", "Nombre de manquants")
 summary_stats_emp$`Nombre de manquants` <- c(0,548)
 summary_stats_emp$`Écart-type` <- c(8.372918,13879.547798)
+summary_stats_emp$`Maximum` <- c(68,90000)
+summary_stats_emp$`Moyenne` <- c(4.286319,44984.029868)
+summary_stats_emp$`Minimum` <- c(1,9000)
+summary_stats_emp$`Médiane` <- c(1,45000)
 kable(summary_stats_emp, 
       format = "html", 
       col.names = colnames(summary_stats_emp)) |> 
