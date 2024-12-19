@@ -124,10 +124,11 @@ ggplot(filtered_data, aes(x = avg_req_exp, y = avg_wage)) +
   theme_minimal() +
   theme(legend.position = "none")
 ```
-Ce graphique examine la relation entre le salaire moyen (en euros) et les années d'expérience requises pour les postes. Les points représentent des observations individuelles, et la ligne de régression linéaire illustre une tendance générale.
+Ce graphique examine **la relation entre le salaire moyen (en euros) et les années d'expérience requises pour les postes**. Les points représentent des observations individuelles, et la ligne de régression linéaire illustre une tendance générale.
 
-On observe une légère corrélation positive entre le nombre d'années d'expérience requises et le salaire moyen, indiquant que les postes exigeant plus d'expérience tendent à offrir des salaires plus élevés. Toutefois, cette relation reste modérée, comme en témoignent les écarts importants entre les points et la ligne de régression, suggérant qu'il existe d'autres facteurs influençant les salaires.
-Dans l'ensemble, ce graphique met en évidence une tendance attendue mais non systématique : une expérience accrue est souvent associée à une meilleure rémunération, mais cela n'est pas toujours le cas.
+On observe une légère **corrélation positive entre le nombre d'années d'expérience requises et le salaire moyen**, indiquant que les postes exigeant plus d'expérience tendent à offrir des salaires plus élevés. Toutefois, cette relation reste modérée, comme en témoignent les écarts importants entre les points et la ligne de régression, suggérant qu'il existe d'autres facteurs influençant les salaires.
+
+Dans l'ensemble, ce graphique met en évidence une tendance attendue mais non systématique : **une expérience accrue est souvent associée à une meilleure rémunération, mais cela n'est pas toujours le cas.**
 
 
 </div>
@@ -161,9 +162,11 @@ theme(panel.grid.major = element_line(color = palette_custom[4]),
 panel.grid.minor = element_blank())
 
 ```
-Ce graphique illustre la relation entre le nombre de brevets déposés et le nombre d'offres d'emploi publiées par les entreprises. 
+Ce graphique illustre la **relation entre le nombre de brevets déposés et le nombre d'offres d'emploi publiées par les entreprises.**
+
 Une proportion importante des entreprises présentes dans la base ne déposent aucun brevet, ce qui explique la forte concentration des points près de l'origine.
-Parmi les entreprises ayant déposé des brevets, on observe que l'augmentation du nombre de brevets déposés n'entraîne pas nécessairement une augmentation significative du nombre d'offres d'emploi publiées, comme le montre la faible pente de la ligne de régression.
+Parmi les entreprises ayant déposé des brevets, on observe que **l'augmentation du nombre de brevets déposés n'entraîne pas nécessairement une augmentation significative du nombre d'offres d'emploi publiées**, comme le montre la faible pente de la ligne de régression.
+
 Cela suggère que d'autres facteurs, comme la taille de l'entreprise ou son secteur d'activité, peuvent jouer un rôle plus déterminant dans le volume des offres d'emploi.
 
 
@@ -228,15 +231,15 @@ ggplot(skill_innovation, aes(x = reorder(top_skill_req, total_patents),
         panel.grid.major = element_line(color = "gray80"))
 
 ```
-Le graphique ci-dessus illustre les compétences les plus fréquemment associées à l'innovation, mesurée par le nombre total de brevets déposés. Il met en avant l'importance cruciale de certaines compétences clés dans les environnements innovants.
+Le graphique montre les compétences les plus fréquemment associées à l'innovation, mesurée par le nombre total de brevets déposés. 
 
-- **"Équipe et Collaboration"** se distingue nettement comme la compétence la plus liée à l'innovation, soulignant la valeur du travail en groupe pour mener des projets innovants. Cela reflète le rôle fondamental des dynamiques collaboratives dans les entreprises modernes, où l'échange d'idées et la coopération sont essentiels.
-- **"Anglais"**, en deuxième position, met en lumière l'importance de cette compétence linguistique dans un monde globalisé. La capacité à collaborer à l'international et à communiquer efficacement dans un environnement multiculturel est devenue incontournable.
-- Les compétences techniques, telles que **"Apprentissage Profond"**, illustrent l'essor de l'intelligence artificielle et du machine learning dans les processus d'innovation.
+Il est évident que **"Équipe et Collaboration"** domine largement en termes d'importance, ce qui reflète la nécessité de travailler en groupe pour conduire des projets innovants. Cela souligne l'importance des dynamiques collaboratives dans les entreprises innovantes, où l'échange d'idées et le travail d'équipe jouent un rôle central.
 
-D'autres compétences transversales, comme **"Communication"**, **"Rapport"**, et **"Programmation"**, complètent le tableau. Ces compétences démontrent que l'innovation repose sur une combinaison équilibrée de capacités relationnelles, techniques, et organisationnelles.
+**"Anglais"** arrive en deuxième position, mettant en lumière le besoin d'une compétence linguistique essentielle dans un environnement globalisé, où les partenariats internationaux et la communication avec des équipes multiculturelles sont monnaie courante. Suivent des compétences techniques telles que **"Apprentissage Profond"**, qui illustre l'importance croissante de l'intelligence artificielle et du machine learning dans les processus d'innovation.
 
-En conclusion, ce graphique met en lumière que l'innovation est un processus complexe et multidimensionnel. Elle nécessite une synergie entre des compétences interpersonnelles, linguistiques et techniques. Les entreprises doivent ainsi créer des environnements collaboratifs tout en investissant dans le développement des compétences clés pour maintenir leur avantage compétitif.
+Des compétences transversales comme **"Communication", "Rapport", et "Programmation"** complètent cette liste en soulignant que, pour innover, les entreprises doivent combiner des capacités relationnelles, une maîtrise technique et une aptitude à documenter et structurer leurs projets.
+
+En conclusion, ce graphique révèle que l'innovation est un processus multidimensionnel qui repose sur une combinaison équilibrée de compétences interpersonnelles, linguistiques et techniques. Cela souligne l'importance pour les entreprises de favoriser un environnement de travail collaboratif tout en investissant dans le développement des compétences technologiques et globales.
 </div> 
 
 
@@ -315,8 +318,13 @@ ggplot(sector_skill, aes(x = sector_main,
 
 
 ```
-Ce graphique met en évidence les **compétences les plus demandées** par secteur d’activité. On observe que des compétences transversales comme le travail en équipe (équipe), la collaboration (Collaboration), et l’anglais (Anglais) sont fréquemment recherchées dans plusieurs secteurs, notamment dans les Banques, les Services aux Entreprises, et le Secteur informatique. Les compétences techniques, telles que Python, SQL, et la Statistique, dominent dans les secteurs axés sur les données comme les Banques, les Assurances, et les ESN, où l’analyse quantitative et la gestion des données sont essentielles.
-Certains secteurs affichent des besoins plus spécifiques : par exemple, les Banques et le Secteur informatiqueprivilégient des compétences en Apprentissage profond et Modélisation, reflétant l’importance croissante des technologies d’intelligence artificielle et d’analyse avancée. En revanche, des secteurs comme la Distribution et le Commerce de gros mettent davantage l’accent sur des compétences relationnelles telles que la Communication et le Rapport, qui sont cruciales pour leurs activités opérationnelles. Ce graphique souligne donc à la fois des compétences communes et des spécialisations sectorielles.
+Ce graphique met en évidence les **compétences les plus demandées par secteur d’activité**.
+
+On observe que des compétences transversales comme le **travail en équipe**, la **collaboration**, et **l’anglais** sont fréquemment recherchées dans plusieurs secteurs, notamment dans les Banques, les Services aux Entreprises, et le Secteur informatique. Les **compétences techniques**, telles que Python, SQL, et la Statistique, dominent dans les secteurs axés sur les données comme les Banques, les Assurances, et les ESN, où l’analyse quantitative et la gestion des données sont essentielles.
+
+Certains secteurs affichent des besoins plus spécifiques : par exemple, les Banques et le Secteur informatique privilégient des compétences en **Apprentissage profond** et Modélisation, reflétant l’importance croissante des technologies d’intelligence artificielle et d’analyse avancée. En revanche, des secteurs comme la Distribution et le Commerce de gros mettent davantage l’accent sur des **compétences relationnelles** telles que la Communication et le Rapport, qui sont cruciales pour leurs activités opérationnelles. 
+
+Ce graphique souligne donc à la fois des compétences communes et des spécialisations sectorielles.
 
 </div>
 
