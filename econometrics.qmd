@@ -1,4 +1,4 @@
-## Économetrie
+## Économétrie
 
 
 Nous allons à présent procéder à une **analyse économétrique** visant à **explorer les déterminants du nombre de brevets déposés par les entreprises** (n_patents).
