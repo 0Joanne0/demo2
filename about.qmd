@@ -45,6 +45,7 @@ summary_stats_brevets <- base_brevets %>%
   relocate(Variable)
 
 summary_stats_brevets$`nombre de manquants` <- 0
+#summary_stats_brevets$`Écart-type` <- 105.1943
 # Create an HTML table with styling
 kable(summary_stats_brevets, 
       format = "html", 
@@ -372,7 +373,7 @@ colnames(summary_stats_all) <- c(
 
 # Add 'Nombre de manquants' column with correct length
 summary_stats_all$`Nombre de manquants` <- c(0, 0, 11726)
-
+summary_stats_all$`Écart-type` <- c(102.388555, 2.281768, 13879.547798)
 
 kable(summary_stats_all, 
       format = "html", 

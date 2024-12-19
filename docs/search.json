@@ -74,7 +74,7 @@
     "href": "about.html#base-emplois-innovations",
     "title": "Statistics",
     "section": "Base EMPLOIS-INNOVATIONS",
-    "text": "Base EMPLOIS-INNOVATIONS\n\n\nCaractères\n\n\nThis graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nVariables\nMinimum\nMédiane\nMaximum\nMoyenne\nÉcart-type\nNombre de manquants\n\n\n\n\nn_patents\n0\n1\n5238\n8.558677e+00\n102.38640\n0\n\n\nn_offres\n0\n0\n68\n2.556574e-01\n2.28172\n0\n\n\navg_wage\n9000\n45000\n90000\n4.498403e+04\n13857.91170\n11726"
+    "text": "Base EMPLOIS-INNOVATIONS\n\n\nCaractères\n\n\nThis graph shows the relationship between X and Y variables.\n\n\n\n\n\n\n\nVariables\nMinimum\nMédiane\nMaximum\nMoyenne\nÉcart-type\nNombre de manquants\n\n\n\n\nn_patents\n0\n1\n5238\n8.558677e+00\n102.388555\n0\n\n\nn_offres\n0\n0\n68\n2.556574e-01\n2.281768\n0\n\n\navg_wage\n9000\n45000\n90000\n4.498403e+04\n13879.547798\n11726"
   },
   {
     "objectID": "Graphs.html#analyse-bivaries",
