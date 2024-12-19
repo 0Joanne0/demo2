@@ -2,13 +2,19 @@
 ### Y a-t-il des compétences associées avec plus d’innovation des entreprises?
 <div class="graph-section">
   <h2>Caractères </h2>
-  <p>This graph shows the relationship between X and Y variables.</p>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(readr)
 library(tidyr)
 library(stringr)
 library(ggplot2)
 library(dplyr)
+
+
+
+
+
 base_emp_inno <- read_delim(
   "data/base_emp_inno.csv",  # Path to the CSV file
   delim = ";",              # Delimiter used in the CSV file
@@ -34,6 +40,7 @@ skill_innovation <- base_emp_inno_skills |>
             count_offers = n()) |>
   arrange(desc(total_patents)) |>
   slice_head(n = 10) 
+
 
 ggplot(skill_innovation, aes(x = reorder(top_skill_req, total_patents), 
                              y = total_patents)) +
