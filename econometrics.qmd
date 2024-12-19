@@ -1,3 +1,70 @@
+### Matrice de corrélation
+<div class="graph-section">
+  <h2>Corrélation </h2>
+  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(wordcloud2)
+library(scales)
+library(corrplot)
+library(knitr)    
+library(kableExtra)   
+library(ggplot2)    
+library(tidyr)        
+library(forcats)
+library(ggforce)
+library(stringr)
+library(corrplot)
+library(readr)
+library(dplyr)
+library(kableExtra)
+base_emp_inno <- read_delim(
+  "data/base_emp_inno.csv",  # Path to the CSV file
+  delim = ";",              # Delimiter used in the CSV file
+  col_names = TRUE,         # Use the first row as column names
+  col_types = cols(
+    .default = "c",         # Treat all columns as character by default
+    n_patents = "n",        # Parse 'n_patents' as numeric
+    n_offres = "n",         # Parse 'n_offres' as numeric
+    avg_wage = "n"          # Parse 'avg_wage' as numeric
+  ),
+  trim_ws = TRUE            # Trim whitespace from character strings
+)
+base_emp_inno <- base_emp_inno |>
+  mutate(
+    avg_wage = as.numeric(avg_wage),
+    n_offres = as.numeric(n_offres),
+    avg_req_exp = as.numeric(avg_req_exp),
+    n_patents = as.numeric(n_patents)
+  )
+
+data_numeric <- base_emp_inno[, c("avg_wage", "n_offres", "avg_req_exp", "n_patents")]
+matrice_correlation <- round(cor(data_numeric, use = "complete.obs"), 2)
+corrplot(matrice_correlation,
+method = "color",
+type = "upper",
+tl.col = "black",
+diag = FALSE,
+number.cex = 1.5,
+tl.cex = 1.2,
+number.digits = 2,
+col = colorRampPalette(c("blue", "grey97", "red"))(200),
+addCoef.col = "white",
+font.lab = 2)
+
+```
+La matrice de corrélation révèle une relation positive modérée (0.31) entre le salaire moyen (**avg_wage**) et l'expérience moyenne requise (**avg_req_exp**), indiquant que des salaires plus élevés sont généralement associés à des postes nécessitant davantage d'expérience. En revanche, une corrélation négative plus faible (-0.28) est observée entre le salaire moyen et le nombre de brevets déposés (**n_patents**), suggérant que les entreprises avec un grand nombre de brevets offrent en moyenne des salaires légèrement inférieurs. Enfin, les relations impliquant le nombre d'offres d'emploi (**n_offres**) sont très faibles, ce qui montre une quasi-indépendance entre cette variable et les autres. 
+Globalement, seule la relation entre salaire moyen et expérience requise ressort clairement, tandis que les autres variables présentent des corrélations négligeables.
+
+</div>
+
+
+
+
+
+
 <div class="graph-section">
   <h2>Caractères </h2>
   <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
