@@ -1,17 +1,15 @@
 ## Analyses Bivariées
-<div class="problem-section">
-  <h2>Problématique</h2>
-  <p>
-    Y a-t-il des compétences associées avec plus d’innovation des entreprises?
-  </p>
-</div>
 
+Dans cette section, nous analysons les relations entre différentes variables liées à l’innovation et aux compétences requises par les entreprises. 
+Pour cela, nous procédons à des **analyses bivariées** permettant de comparer les variables telles que le ***nombre de brevets déposés***, le ***nombre d’offres d’emploi publiées***, les ***compétences requises par secteur*** et le ***salaire moyen***. Ces analyses servent de base pour détecter des associations ou tendances qui orienteront les étapes économétriques ultérieures.
 
-### Comparaison entre le nombre de brevets et d'offres d'emploi par secteur IPC 
+Ces analyses permettent d’explorer les liens entre innovation, compétences et dynamiques sectorielles, tout en posant les bases pour des investigations économétriques plus approfondies.
 
+<br>
+
+### Graphique 1
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(dplyr)
@@ -95,9 +93,13 @@ Le deuxième graphique met en évidence les secteurs les plus dynamiques en term
 Cette comparaison montre que les secteurs innovants ne génèrent pas nécessairement le plus grand volume d'offres d'emploi, soulignant des priorités différentes. 
 </div>
 
+<br>
+<br>
+
+
+
+### Graphique 2
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
 
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Filtrer les données
@@ -130,11 +132,14 @@ Dans l'ensemble, ce graphique met en évidence une tendance attendue mais non sy
 
 </div>
 
+<br>
+<br>
 
 
+
+### Graphique 3
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 palette_custom <- c("#406F71", "#71B6AF", "#9DC8C8", "#D4E1E1")
 
@@ -165,9 +170,12 @@ Cela suggère que d'autres facteurs, comme la taille de l'entreprise ou son sect
 </div>
 
 
+<br>
+<br>
 
+
+### Graphique 4
 <div class="graph-section">
-  <h2>Graphe 1</h2>
   
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(readr)
@@ -235,14 +243,13 @@ En conclusion, ce graphique met en lumière que l'innovation est un processus co
 
 
 
+<br>
+<br>
 
 
 
-
+### Graphique 5
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
-
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 library(ggplot2)
@@ -313,10 +320,13 @@ Certains secteurs affichent des besoins plus spécifiques : par exemple, les Ban
 
 </div>
 
+<br>
+<br>
 
+
+### Graphique 6
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+  
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 ## Répartition des compétences demandées par secteur (en %) 
 
@@ -395,11 +405,15 @@ Ce graphique illustre la répartition des compétences demandées par secteur en
 Les compétences en **Machine Learning** sont particulièrement prisées dans les secteurs des ESN, du secteur informatique et de l'Internet, tandis qu'elles sont très marginales dans des secteurs comme l'immobilier ou le commerce de gros. Les compétences en **Data Science** occupent également une place importante, notamment dans les secteurs de l'Internet, de la banque et de l'assurance, mais restent moins présentes dans des secteurs comme l'immobilier ou l'industrie agroalimentaire. Enfin, les compétences dites autres dominent largement dans la plupart des secteurs, à l'exception notable des ESN et du secteur informatique, où les compétences techniques liées à la Data Science et au Machine Learning sont particulièrement valorisées. Cette répartition montre que les compétences techniques sont principalement recherchées dans les secteurs technologiques et financiers, alors qu'elles restent secondaires dans des domaines plus traditionnels comme l'immobilier ou l'agroalimentaire.
 </div>
 
-### Word cloud
-### Compétences Pondérées par les Brevets
+
+<br>
+<br>
+
+
+### Word Cloud 1
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
+  
+##### **Compétences pondérées par les brevets**
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 # Ensure necessary libraries are loaded
@@ -459,10 +473,15 @@ library(wordcloud2)
 library(dplyr)
 library(scales)
 ```
+
+<br>
+<br>
+
+
+### Word Cloud 2
 <div class="graph-section">
-  <h2>Caractères </h2>
-  <p>Compétences les plus associées à l'innovation (au nombre de brevets)</p>
-#### Compétences pondérées par le salaire
+
+##### **Compétences pondérées par les salaires**
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 competences_salary <- base_emp_inno |>

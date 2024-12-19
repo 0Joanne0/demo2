@@ -106,15 +106,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Statistics</span></a>
+<span class="menu-text">Statistiques</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./Graphs.html" aria-current="page"> 
-<span class="menu-text">Graphs</span></a>
+<span class="menu-text">Graphiques</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./econometrics.html"> 
-<span class="menu-text">Econometrics</span></a>
+<span class="menu-text">Économétrie</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -134,9 +134,14 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#analyses-bivariées" id="toc-analyses-bivariées" class="nav-link active" data-scroll-target="#analyses-bivariées">Analyses Bivariées</a>
   <ul class="collapse">
-  <li><a href="#comparaison-entre-le-nombre-de-brevets-et-doffres-demploi-par-secteur-ipc" id="toc-comparaison-entre-le-nombre-de-brevets-et-doffres-demploi-par-secteur-ipc" class="nav-link" data-scroll-target="#comparaison-entre-le-nombre-de-brevets-et-doffres-demploi-par-secteur-ipc">Comparaison entre le nombre de brevets et d’offres d’emploi par secteur IPC</a></li>
-  <li><a href="#word-cloud" id="toc-word-cloud" class="nav-link" data-scroll-target="#word-cloud">Word cloud</a></li>
-  <li><a href="#compétences-pondérées-par-les-brevets" id="toc-compétences-pondérées-par-les-brevets" class="nav-link" data-scroll-target="#compétences-pondérées-par-les-brevets">Compétences Pondérées par les Brevets</a></li>
+  <li><a href="#graphique-1" id="toc-graphique-1" class="nav-link" data-scroll-target="#graphique-1">Graphique 1</a></li>
+  <li><a href="#graphique-2" id="toc-graphique-2" class="nav-link" data-scroll-target="#graphique-2">Graphique 2</a></li>
+  <li><a href="#graphique-3" id="toc-graphique-3" class="nav-link" data-scroll-target="#graphique-3">Graphique 3</a></li>
+  <li><a href="#graphique-4" id="toc-graphique-4" class="nav-link" data-scroll-target="#graphique-4">Graphique 4</a></li>
+  <li><a href="#graphique-5" id="toc-graphique-5" class="nav-link" data-scroll-target="#graphique-5">Graphique 5</a></li>
+  <li><a href="#graphique-6" id="toc-graphique-6" class="nav-link" data-scroll-target="#graphique-6">Graphique 6</a></li>
+  <li><a href="#word-cloud-1" id="toc-word-cloud-1" class="nav-link" data-scroll-target="#word-cloud-1">Word Cloud 1</a></li>
+  <li><a href="#word-cloud-2" id="toc-word-cloud-2" class="nav-link" data-scroll-target="#word-cloud-2">Word Cloud 2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -149,23 +154,12 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="analyses-bivariées" class="level2">
 <h2 class="anchored" data-anchor-id="analyses-bivariées">Analyses Bivariées</h2>
-<div class="problem-section">
-<h2 class="anchored">
-Problématique
-</h2>
-<p>
-Y a-t-il des compétences associées avec plus d’innovation des entreprises?
-</p>
-</div>
-<section id="comparaison-entre-le-nombre-de-brevets-et-doffres-demploi-par-secteur-ipc" class="level3">
-<h3 class="anchored">Comparaison entre le nombre de brevets et d’offres d’emploi par secteur IPC</h3>
+<p>Dans cette section, nous analysons les relations entre différentes variables liées à l’innovation et aux compétences requises par les entreprises. Pour cela, nous procédons à des <strong>analyses bivariées</strong> permettant de comparer les variables telles que le <strong><em>nombre de brevets déposés</em></strong>, le <strong><em>nombre d’offres d’emploi publiées</em></strong>, les <strong><em>compétences requises par secteur</em></strong> et le <strong><em>salaire moyen</em></strong>. Ces analyses servent de base pour détecter des associations ou tendances qui orienteront les étapes économétriques ultérieures.</p>
+<p>Ces analyses permettent d’explorer les liens entre innovation, compétences et dynamiques sectorielles, tout en posant les bases pour des investigations économétriques plus&nbsp;approfondies.</p>
+<p><br></p>
+<section id="graphique-1" class="level3">
+<h3 class="anchored" data-anchor-id="graphique-1">Graphique 1</h3>
 <div class="graph-section">
-<h2 class="anchored" data-anchor-id="comparaison-entre-le-nombre-de-brevets-et-doffres-demploi-par-secteur-ipc">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -177,13 +171,11 @@ Compétences les plus associées à l’innovation (au nombre de brevets)
 </div>
 <p>Ce graphique compare le nombre de brevets déposés et le nombre d’offres d’emploi publiées par secteur IPC (International Patent Classification). Le premier graphique montre que le secteur des <strong>Besoins Humains</strong> est de loin le plus actif en termes de brevets déposés, suivi par les secteurs des <strong>Opérations/Transport</strong> et de la <strong>Physique</strong>. Les secteurs comme les <strong>Textiles/Papier</strong> et les <strong>Constructions</strong> apparaissent en revanche comme beaucoup moins innovants, avec un nombre relativement faible de brevets. Le deuxième graphique met en évidence les secteurs les plus dynamiques en termes d’offres d’emploi. Contrairement au classement par brevets, les secteurs de <strong>l’Électricité</strong>, de <strong>l’Ingénierie Mécanique</strong> et des <strong>Opérations/Transport</strong> dominent ici. Le secteur des <strong>Besoins Humains</strong>, bien qu’il se distingue en innovation (brevets), est moins représenté en termes d’offres d’emploi, indiquant un potentiel décalage entre innovation et création d’emplois. Cette comparaison montre que les secteurs innovants ne génèrent pas nécessairement le plus grand volume d’offres d’emploi, soulignant des priorités différentes.</p>
 </div>
+<p><br> <br></p>
+</section>
+<section id="graphique-2" class="level3">
+<h3 class="anchored" data-anchor-id="graphique-2">Graphique 2</h3>
 <div class="graph-section">
-<h2 class="anchored">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -196,13 +188,11 @@ Compétences les plus associées à l’innovation (au nombre de brevets)
 <p>Ce graphique examine la relation entre le salaire moyen (en euros) et les années d’expérience requises pour les postes. Les points représentent des observations individuelles, et la ligne de régression linéaire illustre une tendance générale.</p>
 <p>On observe une légère corrélation positive entre le nombre d’années d’expérience requises et le salaire moyen, indiquant que les postes exigeant plus d’expérience tendent à offrir des salaires plus élevés. Toutefois, cette relation reste modérée, comme en témoignent les écarts importants entre les points et la ligne de régression, suggérant qu’il existe d’autres facteurs influençant les salaires. Dans l’ensemble, ce graphique met en évidence une tendance attendue mais non systématique : une expérience accrue est souvent associée à une meilleure rémunération, mais cela n’est pas toujours le cas.</p>
 </div>
+<p><br> <br></p>
+</section>
+<section id="graphique-3" class="level3">
+<h3 class="anchored" data-anchor-id="graphique-3">Graphique 3</h3>
 <div class="graph-section">
-<h2 class="anchored">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -214,10 +204,11 @@ Compétences les plus associées à l’innovation (au nombre de brevets)
 </div>
 <p>Ce graphique illustre la relation entre le nombre de brevets déposés et le nombre d’offres d’emploi publiées par les entreprises. Une proportion importante des entreprises présentes dans la base ne déposent aucun brevet, ce qui explique la forte concentration des points près de l’origine. Parmi les entreprises ayant déposé des brevets, on observe que l’augmentation du nombre de brevets déposés n’entraîne pas nécessairement une augmentation significative du nombre d’offres d’emploi publiées, comme le montre la faible pente de la ligne de régression. Cela suggère que d’autres facteurs, comme la taille de l’entreprise ou son secteur d’activité, peuvent jouer un rôle plus déterminant dans le volume des offres d’emploi.</p>
 </div>
+<p><br> <br></p>
+</section>
+<section id="graphique-4" class="level3">
+<h3 class="anchored" data-anchor-id="graphique-4">Graphique 4</h3>
 <div class="graph-section">
-<h2 class="anchored">
-Graphe 1
-</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -236,13 +227,11 @@ Graphe 1
 <p>D’autres compétences transversales, comme <strong>“Communication”</strong>, <strong>“Rapport”</strong>, et <strong>“Programmation”</strong>, complètent le tableau. Ces compétences démontrent que l’innovation repose sur une combinaison équilibrée de capacités relationnelles, techniques, et organisationnelles.</p>
 <p>En conclusion, ce graphique met en lumière que l’innovation est un processus complexe et multidimensionnel. Elle nécessite une synergie entre des compétences interpersonnelles, linguistiques et techniques. Les entreprises doivent ainsi créer des environnements collaboratifs tout en investissant dans le développement des compétences clés pour maintenir leur avantage compétitif.</p>
 </div>
+<p><br> <br></p>
+</section>
+<section id="graphique-5" class="level3">
+<h3 class="anchored" data-anchor-id="graphique-5">Graphique 5</h3>
 <div class="graph-section">
-<h2 class="anchored">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -254,13 +243,11 @@ Compétences les plus associées à l’innovation (au nombre de brevets)
 </div>
 <p>Ce graphique met en évidence les <strong>compétences les plus demandées</strong> par secteur d’activité. On observe que des compétences transversales comme le travail en équipe (équipe), la collaboration (Collaboration), et l’anglais (Anglais) sont fréquemment recherchées dans plusieurs secteurs, notamment dans les Banques, les Services aux Entreprises, et le Secteur informatique. Les compétences techniques, telles que Python, SQL, et la Statistique, dominent dans les secteurs axés sur les données comme les Banques, les Assurances, et les ESN, où l’analyse quantitative et la gestion des données sont essentielles. Certains secteurs affichent des besoins plus spécifiques : par exemple, les Banques et le Secteur informatiqueprivilégient des compétences en Apprentissage profond et Modélisation, reflétant l’importance croissante des technologies d’intelligence artificielle et d’analyse avancée. En revanche, des secteurs comme la Distribution et le Commerce de gros mettent davantage l’accent sur des compétences relationnelles telles que la Communication et le Rapport, qui sont cruciales pour leurs activités opérationnelles. Ce graphique souligne donc à la fois des compétences communes et des spécialisations sectorielles.</p>
 </div>
+<p><br> <br></p>
+</section>
+<section id="graphique-6" class="level3">
+<h3 class="anchored" data-anchor-id="graphique-6">Graphique 6</h3>
 <div class="graph-section">
-<h2 class="anchored">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -273,39 +260,28 @@ Compétences les plus associées à l’innovation (au nombre de brevets)
 <p>Ce graphique illustre la répartition des compétences demandées par secteur en pourcentage, réparties en trois catégories : Autres, Data Science et Machine Learning.</p>
 <p>Les compétences en <strong>Machine Learning</strong> sont particulièrement prisées dans les secteurs des ESN, du secteur informatique et de l’Internet, tandis qu’elles sont très marginales dans des secteurs comme l’immobilier ou le commerce de gros. Les compétences en <strong>Data Science</strong> occupent également une place importante, notamment dans les secteurs de l’Internet, de la banque et de l’assurance, mais restent moins présentes dans des secteurs comme l’immobilier ou l’industrie agroalimentaire. Enfin, les compétences dites autres dominent largement dans la plupart des secteurs, à l’exception notable des ESN et du secteur informatique, où les compétences techniques liées à la Data Science et au Machine Learning sont particulièrement valorisées. Cette répartition montre que les compétences techniques sont principalement recherchées dans les secteurs technologiques et financiers, alors qu’elles restent secondaires dans des domaines plus traditionnels comme l’immobilier ou l’agroalimentaire.</p>
 </div>
+<p><br> <br></p>
 </section>
-<section id="word-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="word-cloud">Word cloud</h3>
-</section>
-<section id="compétences-pondérées-par-les-brevets" class="level3">
-<h3 class="anchored">Compétences Pondérées par les Brevets</h3>
-<div class="graph-section">
-<h2 class="anchored" data-anchor-id="compétences-pondérées-par-les-brevets">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
+<section id="word-cloud-1" class="level3">
+<h3 class="anchored" data-anchor-id="word-cloud-1">Word Cloud 1</h3>
+<section id="compétences-pondérées-par-les-brevets" class="level5 graph-section">
+<h5 class="anchored" data-anchor-id="compétences-pondérées-par-les-brevets"><strong>Compétences pondérées par les brevets</strong></h5>
 <iframe src="competences_patents_wordcloud.html" width="100%" height="600px" style="border:none;">
 </iframe>
-</div>
-<div class="graph-section">
-<h2 class="anchored">
-Caractères
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
-<section id="compétences-pondérées-par-le-salaire" class="level4">
-<h4 class="anchored" data-anchor-id="compétences-pondérées-par-le-salaire">Compétences pondérées par le salaire</h4>
+</section>
+<p><br> <br></p>
+</section>
+<section id="word-cloud-2" class="level3">
+<h3 class="anchored" data-anchor-id="word-cloud-2">Word Cloud 2</h3>
+<section id="compétences-pondérées-par-les-salaires" class="level5 graph-section">
+<h5 class="anchored" data-anchor-id="compétences-pondérées-par-les-salaires"><strong>Compétences pondérées par les salaires</strong></h5>
 <div class="cell">
 <div class="cell-output-display">
-<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-ae5d54bcdf8a4f194f63" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-ae5d54bcdf8a4f194f63">{"x":{"word":["Serieux","Google Cloud","Aws","Prévision","Azure","Spark","Natural Language Processing","Hadoop","Git","Français","Optimisation","Autonome","Python","Equipe Et Collaboration","Modélisation","Statistique","Power Bi","A/B Testing","Résolution De Problèmes","Communication","Visualisation De Donnée","Sql","Anglais","Rapport","Intelligence Artificielle","C++","Excel","Tableau","Apprentissage Profond","Curiosité","Bases De Données","Programmation","Collecte De Données","Proactif","Vba","Rigueur","Pytorch","Tensorflow","Base De Donnée","Créativité"],"freq":[65000,56166.66666666666,52812.5,52500,51350,51083.33333333334,50833.33333333334,48166.66666666666,47059.83455882353,46200.18181818182,46100,45814.85294117647,45482.47116493656,45444.19896509367,45440,45210.3,44979.16666666667,44000,44000,43836.36363636364,43625,43499.07070707071,43441.79166666667,43217.22380952381,41976.64,41500,41496.48484848485,40853.73913043478,40331.96470588236,39000,37762.5,37400,36500,36400,35300,34185.71428571428,31275,31275,27725,16800],"fontFamily":"Segoe UI","fontWeight":"bold","color":["#08306B","#1660A8","#2272B5","#2473B6","#2C7ABA","#2D7BBA","#2F7CBB","#3C8BC3","#4191C6","#4895C8","#4896C8","#4A97C9","#4D99CA","#4D99CA","#4D99CA","#4F9ACB","#509BCB","#579FCE","#579FCE","#58A0CE","#5AA1CF","#5AA2CF","#5BA2CF","#5CA3D0","#64A9D3","#67ABD4","#67ABD4","#6BAED6","#70B1D7","#7CB7D9","#87BCDC","#8ABEDC","#91C2DE","#92C3DE","#9BC8E0","#A3CCE3","#B6D4E9","#B6D4E9","#CBDEF0","#F7FBFF"],"minSize":0,"weightFactor":0.0005538461538461539,"backgroundColor":"white","gridSize":10,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-75d0e8bd8b84c75fbb11" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-75d0e8bd8b84c75fbb11">{"x":{"word":["Serieux","Google Cloud","Aws","Prévision","Azure","Spark","Natural Language Processing","Hadoop","Git","Français","Optimisation","Autonome","Python","Equipe Et Collaboration","Modélisation","Statistique","Power Bi","A/B Testing","Résolution De Problèmes","Communication","Visualisation De Donnée","Sql","Anglais","Rapport","Intelligence Artificielle","C++","Excel","Tableau","Apprentissage Profond","Curiosité","Bases De Données","Programmation","Collecte De Données","Proactif","Vba","Rigueur","Pytorch","Tensorflow","Base De Donnée","Créativité"],"freq":[65000,56166.66666666666,52812.5,52500,51350,51083.33333333334,50833.33333333334,48166.66666666666,47059.83455882353,46200.18181818182,46100,45814.85294117647,45482.47116493656,45444.19896509367,45440,45210.3,44979.16666666667,44000,44000,43836.36363636364,43625,43499.07070707071,43441.79166666667,43217.22380952381,41976.64,41500,41496.48484848485,40853.73913043478,40331.96470588236,39000,37762.5,37400,36500,36400,35300,34185.71428571428,31275,31275,27725,16800],"fontFamily":"Segoe UI","fontWeight":"bold","color":["#08306B","#1660A8","#2272B5","#2473B6","#2C7ABA","#2D7BBA","#2F7CBB","#3C8BC3","#4191C6","#4895C8","#4896C8","#4A97C9","#4D99CA","#4D99CA","#4D99CA","#4F9ACB","#509BCB","#579FCE","#579FCE","#58A0CE","#5AA1CF","#5AA2CF","#5BA2CF","#5CA3D0","#64A9D3","#67ABD4","#67ABD4","#6BAED6","#70B1D7","#7CB7D9","#87BCDC","#8ABEDC","#91C2DE","#92C3DE","#9BC8E0","#A3CCE3","#B6D4E9","#B6D4E9","#CBDEF0","#F7FBFF"],"minSize":0,"weightFactor":0.0005538461538461539,"backgroundColor":"white","gridSize":10,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
 </div>
 </section>
-</div>
 
 
 </section>

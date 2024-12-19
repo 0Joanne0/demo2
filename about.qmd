@@ -4,7 +4,7 @@ Dans cette section, nous allons procéder à une analyse statistique descriptive
 L'objectif est de fournir une vue d'ensemble des caractéristiques des données, en calculant les principales mesures de tendance centrale et de dispersion pour les variables numériques, ainsi que les valeurs les plus fréquentes pour les variables qualitatives.
 
 
-## Base BREVETS
+## Base des Brevets
 
 <div class="graph-section">
   <h2>Numérique</h2>
@@ -144,7 +144,7 @@ kable(summary_combined |> select(-Section),
 
 
 
-## Base EMPLOIS
+## Base des Emplois
 <div class="graph-section">
   <h2>Numérique </h2>
   
@@ -302,7 +302,7 @@ kable(summary_combined_salary %>% select(-Section),
 
 
 
-## Base EMPLOIS-INNOVATIONS
+## Base des Emplois-Innovations
 <div class="graph-section">
   <h2>Caractères </h2>
   

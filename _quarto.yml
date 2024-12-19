@@ -10,11 +10,11 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: Statistics
+        text: Statistiques
       - href: Graphs.qmd
-        text: Graphs
+        text: Graphiques
       - href: econometrics.qmd
-        text: Econometrics
+        text: Économétrie
 
 format:
   html:

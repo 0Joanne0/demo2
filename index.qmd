@@ -1,7 +1,15 @@
 
 ---
-title: "Analyse emploie brevet"
+title: "Analyse de la performance d’innovation des entreprises et leur demande de compétences"
 ---
+<ul>
+<li> ATALLAH Joanne</li>
+<li>AUBEL Xavier </li>
+<li>COUSTILLAC Cêlestine</li>
+<li>EZIN Philia </li>
+<li>MADOR Fanis</li>
+</ul>
+
 # Introduction
 
 <div class="intro-section">

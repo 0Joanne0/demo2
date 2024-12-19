@@ -94,15 +94,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Statistics</span></a>
+<span class="menu-text">Statistiques</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Graphs.html"> 
-<span class="menu-text">Graphs</span></a>
+<span class="menu-text">Graphiques</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./econometrics.html" aria-current="page"> 
-<span class="menu-text">Econometrics</span></a>
+<span class="menu-text">Économétrie</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -120,7 +120,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#matrice-de-corrélation" id="toc-matrice-de-corrélation" class="nav-link active" data-scroll-target="#matrice-de-corrélation">Matrice de corrélation</a></li>
+  <li><a href="#économetrie" id="toc-économetrie" class="nav-link active" data-scroll-target="#économetrie">Économetrie</a>
+  <ul class="collapse">
+  <li><a href="#matrice-de-corrélation" id="toc-matrice-de-corrélation" class="nav-link" data-scroll-target="#matrice-de-corrélation">Matrice de corrélation</a></li>
+  <li><a href="#analyse-économétrique" id="toc-analyse-économétrique" class="nav-link" data-scroll-target="#analyse-économétrique">Analyse économétrique</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -130,15 +134,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="économetrie" class="level2">
+<h2 class="anchored" data-anchor-id="économetrie">Économetrie</h2>
+<p>Nous allons à présent procéder à une <strong>analyse économétrique</strong> visant à <strong>explorer les déterminants du nombre de brevets déposés par les entreprises</strong> (n_patents).</p>
+<p><br></p>
 <section id="matrice-de-corrélation" class="level3">
-<h3 class="anchored">Matrice de corrélation</h3>
+<h3 class="anchored" data-anchor-id="matrice-de-corrélation">Matrice de corrélation</h3>
+<p>Avant de procéder à une analyse économétrique, il est crucial de mener une analyse préliminaire des corrélations entre les variables afin de mieux comprendre leurs relations potentielles. En effet, cette étape d’<strong>analyse des corrélations</strong> constitue un préalable indispensable pour justifier les choix méthodologiques et s’assurer de la pertinence des variables dans les modèles économétriques.</p>
 <div class="graph-section">
-<h2 class="anchored" data-anchor-id="matrice-de-corrélation">
-Corrélation
-</h2>
-<p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -150,13 +153,22 @@ Compétences les plus associées à l’innovation (au nombre de brevets)
 </div>
 <p>La matrice de corrélation révèle une relation positive modérée (0.31) entre le salaire moyen (<strong>avg_wage</strong>) et l’expérience moyenne requise (<strong>avg_req_exp</strong>), indiquant que des salaires plus élevés sont généralement associés à des postes nécessitant davantage d’expérience. En revanche, une corrélation négative plus faible (-0.28) est observée entre le salaire moyen et le nombre de brevets déposés (<strong>n_patents</strong>), suggérant que les entreprises avec un grand nombre de brevets offrent en moyenne des salaires légèrement inférieurs. Enfin, les relations impliquant le nombre d’offres d’emploi (<strong>n_offres</strong>) sont très faibles, ce qui montre une quasi-indépendance entre cette variable et les autres. Globalement, seule la relation entre salaire moyen et expérience requise ressort clairement, tandis que les autres variables présentent des corrélations négligeables.</p>
 </div>
-<div class="graph-section">
-<h2 class="anchored">
-Caractères
-</h2>
+<p><br> <br> <br></p>
+</section>
+<section id="analyse-économétrique" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-économétrique">Analyse économétrique</h3>
+Nous allons désormais passer à <strong>l’analyse économétrique</strong>. Pour cela, nous avons opté pour deux modèles de régressions linéaires : un <strong>modèle bivarié</strong>, où seule la relation entre le salaire moyen et le nombre de brevets est analysée, et un <strong>modèle multivarié</strong>, qui inclut également le nombre d’offres d’emploi publiées et l’expérience moyenne requise. Certaines variables ont été transformées en <strong>logarithme</strong> afin de mieux capturer les relations proportionnelles et de réduire l’impact des valeurs extrêmes présentes dans les données. Par exemple, le choix de log-transformer le nombre de brevets (n_patents), le salaire moyen (avg_wage) et le nombre d’offres (n_offres) repose sur l’hypothèse que les relations entre ces variables ne sont pas linéaires en valeur absolue, mais plutôt proportionnelles. Cette transformation permet également de faciliter l’interprétation des coefficients comme des élasticités, rendant les résultats économétriques plus intuitifs.
 <p>
-Compétences les plus associées à l’innovation (au nombre de brevets)
-</p>
+</p><ol type="1">
+<li>: <i>log_n_patents<sub>i</sub></i> = β<sub>0</sub> + β<sub>1</sub> × <i>log_avg_wage<sub>i</sub></i> + ε<sub>i</sub></li>
+</ol>
+<p></p>
+<p>
+</p><ol start="2" type="1">
+<li>: <i>log_n_patents<sub>i</sub></i> = β<sub>0</sub> + β<sub>1</sub> × <i>log_avg_wage<sub>i</sub></i> + β<sub>2</sub> × <i>log_n_offres<sub>i</sub></i> + β<sub>3</sub> × <i>avg_req_exp<sub>i</sub></i> + ε<sub>i</sub></li>
+</ol>
+<p></p>
+<div class="graph-section">
 <table style="text-align:center">
 <caption>
 <strong>Résultats</strong>
@@ -383,9 +395,14 @@ F Statistic
 </td>
 </tr>
 </tbody></table>
+<p>Dans le <strong>modèle (1)</strong>, seul le salaire moyen (log_avg_wage) est inclus comme variable explicative. Le coefficient associé à cette variable est significatif à un niveau de 5 % et indique une relation négative (-0,462). Cela signifie qu’une augmentation de 1 % du salaire moyen est associée à une diminution de 0,462 % du nombre de brevets déposés, toutes choses égales par ailleurs. Cette relation négative peut être interprétée de plusieurs manières. D’une part, elle pourrait refléter que les entreprises en phase de démarrage ou dans les premières étapes de leur cycle de vie tendent à être particulièrement innovantes. Ces start-ups ou jeunes entreprises cherchent souvent à se démarquer en déposant un grand nombre de brevets. Cependant, elles disposent généralement de ressources financières limitées, ce qui se traduit par des salaires relativement modestes en comparaison avec des entreprises plus matures. D’autre part, cette relation pourrait également indiquer que les entreprises très innovantes, qui déposent davantage de brevets, allouent une part importante de leurs ressources à la recherche et développement (R&amp;D) plutôt qu’à l’attractivité salariale. Ces entreprises privilégieraient ainsi l’investissement stratégique dans l’innovation, ce qui pourrait expliquer cette corrélation négative.</p>
+<p>Le <strong>modèle (2)</strong> enrichit l’analyse en ajoutant deux nouvelles variables explicatives : le logarithme du nombre d’offres publiées (log_n_offres) et l’expérience moyenne requise (avg_req_exp). Dans ce modèle, le coefficient du salaire moyen reste négatif (-0,880) et devient encore plus significatif (p &lt; 0,01). Cependant, les deux nouvelles variables ne sont pas statistiquement significatives. Cela suggère que ni le nombre d’offres publiées ni l’expérience moyenne requise ne jouent un rôle déterminant dans l’explication du nombre de brevets déposés.</p>
+<p>Enfin, les indicateurs de qualité des modèles, tels que le R² ajusté, restent relativement faibles (0,024 pour le modèle (1) et 0,088 pour le modèle (2)). Cela indique que les variables explicatives incluses expliquent une petite partie de la variation du nombre de brevets. Toutefois, le modèle (2) montre une légère amélioration par rapport au modèle (1), avec une meilleure capacité explicative globale.</p>
+<p>En résumé, cette analyse met en évidence une <strong>relation significative et négative entre le salaire moyen et le nombre de brevets déposés</strong>. Cependant, les autres variables explicatives n’apportent pas d’évidence claire quant à leur impact. Ces résultats suggèrent que les entreprises qui déposent plus de brevets pourraient se concentrer sur des stratégies autres que l’attractivité salariale ou l’expérience des candidats pour stimuler leur innovation.</p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
