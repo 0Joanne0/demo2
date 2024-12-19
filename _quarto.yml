@@ -9,7 +9,7 @@ website:
         text: Home
       - href: about.qmd
         text: Statistics
-      - href: Graphs.qmd
+      - href: graphs.qmd
         text: Graphs
       - href: econometrics.qmd
         text: Econometrics
