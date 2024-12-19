@@ -407,6 +407,9 @@ ggplot(sector_skill, aes(x = sector_main,
 
 
 ```
+Ce graphique met en évidence les **compétences les plus demandées** par secteur d’activité. On observe que des compétences transversales comme le travail en équipe (équipe), la collaboration (Collaboration), et l’anglais (Anglais) sont fréquemment recherchées dans plusieurs secteurs, notamment dans les Banques, les Services aux Entreprises, et le Secteur informatique. Les compétences techniques, telles que Python, SQL, et la Statistique, dominent dans les secteurs axés sur les données comme les Banques, les Assurances, et les ESN, où l’analyse quantitative et la gestion des données sont essentielles.
+Certains secteurs affichent des besoins plus spécifiques : par exemple, les Banques et le Secteur informatiqueprivilégient des compétences en Apprentissage profond et Modélisation, reflétant l’importance croissante des technologies d’intelligence artificielle et d’analyse avancée. En revanche, des secteurs comme la Distribution et le Commerce de gros mettent davantage l’accent sur des compétences relationnelles telles que la Communication et le Rapport, qui sont cruciales pour leurs activités opérationnelles. Ce graphique souligne donc à la fois des compétences communes et des spécialisations sectorielles.
+
 </div>
 
 
