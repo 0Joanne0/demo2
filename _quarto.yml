@@ -11,6 +11,8 @@ website:
         text: Statistics
       - href: Graphs.qmd
         text: Graphs
+      - href: econometrics.qmd
+        text: Econometrics
 
 format:
   html:

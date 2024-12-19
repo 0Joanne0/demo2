@@ -75,7 +75,7 @@ library(dplyr)
 library(scales)
 ```
 
-#### compétences pondérées par le salaire
+#### Compétences pondérées par le salaire
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 
 competences_salary <- base_emp_inno |>
@@ -93,7 +93,7 @@ competences_salary <- competences_salary |>
          (mean_salary))
 
 wordcloud2(data = competences_salary,
-           size = 0.1,
+           size = 0.5,
            color = competences_salary$color, 
            backgroundColor = "white",
            rotateRatio = 0,
@@ -103,17 +103,18 @@ wordcloud2(data = competences_salary,
 
 
 ```
-####  compétences pondérées par les brevets
+### Compétences Pondérées par les Brevets
 
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
-options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
 library(dplyr)
 library(tidyr)
 library(scales)
 library(RColorBrewer)
 library(wordcloud2)
+library(htmlwidgets)
 
-
+# Prepare the data
 competences_patents <- base_emp_inno |>
   filter(!is.na(n_patents), !is.na(top_skill_req)) |>
   mutate(skills_split = strsplit(top_skill_req, ",\\s*")) |>
@@ -124,21 +125,33 @@ competences_patents <- base_emp_inno |>
   arrange(desc(total_patents))
 
 competences_patents <- competences_patents |>
-  mutate(scaled_patents = log10(total_patents + 1), 
-         color = scales::col_numeric(palette = RColorBrewer::brewer.pal(9, "Blues")[2:9], 
-                                     domain = range(total_patents))
-         (total_patents))
+  mutate(
+    scaled_patents = log10(total_patents + 1),
+    color = scales::col_numeric(
+      palette = RColorBrewer::brewer.pal(9, "Blues")[2:9],
+      domain = range(total_patents, na.rm = TRUE)
+    )(total_patents)
+  )
 
-wordcloud2(data = competences_patents |> select(skills_split, scaled_patents),
-           size = 0.5, 
-           color = competences_patents$color,  
-           backgroundColor = "white",
-           rotateRatio = 0,  
-           gridSize = 10,
-           fontWeight = "bold")
-
-
+# Save word cloud as HTML
+wordcloud_file <- "competences_patents_wordcloud.html"
+saveWidget(
+  wordcloud2(
+    data = competences_patents |> select(skills_split, scaled_patents),
+    size = 0.5,
+    color = competences_patents$color,
+    backgroundColor = "white",
+    rotateRatio = 0,
+    gridSize = 10,
+    fontWeight = "bold"
+  ),
+  wordcloud_file,
+  selfcontained = TRUE
+)
 ```
+
+<iframe src="competences_patents_wordcloud.html" width="100%" height="600px" style="border:none;"></iframe>
+
 ### Comparaison entre le nombre de brevets et d'offres d'emploi par secteur IPC 
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
@@ -254,3 +267,71 @@ addCoef.col = "white",
 font.lab = 2)
 
 ```
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+palette_custom <- c("#406F71", "#71B6AF", "#9DC8C8", "#D4E1E1")
+
+ggplot(base_emp_inno, aes(x = n_patents,
+y = n_offres)) +
+geom_point(color = palette_custom[2],
+size = 3,
+alpha = 0.7) +
+geom_smooth(method = "lm",
+color = palette_custom[1],
+se = FALSE,
+linewidth = 1.2) +
+labs(title = "Relation entre le nombre de brevets déposés et le nombre \n offres d'emploi publiées",
+x = "Nombre de brevets déposés",
+y = "Nombre d'offres d'emploi") +
+ylim(0, 80) +
+theme_minimal(base_size = 14) +
+theme(panel.grid.major = element_line(color = palette_custom[4]),
+panel.grid.minor = element_blank())
+
+```
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+# Step 1: Separate rows and remove NAs
+data_separated <- base_emp_inno %>%
+  separate_rows(sector_main, sep = ",") %>%
+  separate_rows(top_skill_req, sep = ",") %>%
+  filter(!is.na(sector_main) & !is.na(top_skill_req))  # Remove rows with NA values
+
+# Step 2: Identify the top sectors and top skills
+top_sectors <- data_separated %>%
+  count(sector_main, name = "sector_count") %>%
+  arrange(desc(sector_count)) %>%
+  slice_head(n = 10)  # Select top 10 sectors
+
+top_skills <- data_separated %>%
+  count(top_skill_req, name = "skill_count") %>%
+  arrange(desc(skill_count)) %>%
+  slice_head(n = 10)  # Select top 10 skills
+
+# Step 3: Filter the data for the top sectors and top skills
+filtered_data <- data_separated %>%
+  filter(sector_main %in% top_sectors$sector_main & top_skill_req %in% top_skills$top_skill_req)
+
+# Step 4: Group and summarize the filtered data
+sector_skill <- filtered_data %>%
+  group_by(sector_main, top_skill_req) %>%
+  summarise(count = n(), .groups = "drop")
+
+# Step 5: Plot the heatmap
+ggplot(sector_skill, aes(x = sector_main, y = top_skill_req, fill = count)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient(low = "lightblue", high = "blue", name = "Count") +
+  labs(
+    title = "Top Skills Required in Top Sectors",
+    x = "Sector",
+    y = "Top Skill Required"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.y = element_text(size = 10),
+    panel.grid = element_blank()
+  )
+
+```
+
