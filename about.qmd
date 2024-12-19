@@ -70,6 +70,8 @@ Le fait que le minimum et la médiane soient de 1 indique que **la moitié des e
 <div class="graph-section">
   <h2>Caractères </h2>
   
+Cette table met en évidence les villes, départements, entreprises et IPC proposant le plus grand nombre d'offres d'emploi.
+
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Function to extract the top 5 by a specified variable
 ### Caractères 
@@ -147,6 +149,9 @@ kable(summary_combined |> select(-Section),
 
 ```
 
+<br>
+
+Nous observons une concentration des dépôts de brevets par des entreprises situés en **région parisienne**.Les brevets analysés concernant majoritairement le **domaine médical**, témoignant d’une avancée centrale et stratégique dans ce secteur.
 </div> 
 
 
@@ -223,6 +228,8 @@ En ce qui concerne le **salaire moyen annuel** (avg_wage), les salaires sont plu
 
 <div class="graph-section">
   <h2>Caractères </h2>
+
+Cette table met en évidence les départements, entreprises et secteurs offrant les meilleurs salaires moyens.
   
 ```{r,echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyr)
@@ -305,6 +312,13 @@ kable(summary_combined_salary %>% select(-Section),
             color = "white", 
             bold = TRUE)
 ```
+
+<br>
+
+Les départements 45, 78 et 75, situés en **Île-de-France ou à proximité**, se démarquent par des salaires moyens élevés, notamment en raison de la forte concentration de sièges sociaux, d’entreprises stratégiques et d’opportunités économiques. Cette région attire une main-d'œuvre qualifiée, et les entreprises y proposent des rémunérations compétitives pour répondre à la concurrence et retenir les talents.
+
+Dans les secteurs, le **Service public des collectivités territoriales** rémunère bien des postes exigeant des compétences spécifiques, tandis que l’**Industrie high-tech**, en pleine croissance, attire des profils techniques très demandés, justifiant des salaires élevés.
+
 </div> 
 
 

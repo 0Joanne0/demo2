@@ -2,13 +2,15 @@
 ---
 title: "Analyse de la performance d’innovation des entreprises et leur demande de compétences"
 ---
-<ul>
-<li> ATALLAH Joanne</li>
-<li>AUBEL Xavier </li>
-<li>COUSTILLAC Cêlestine</li>
-<li>EZIN Philia </li>
-<li>MADOR Fanis</li>
-</ul>
+# Bienvenue !
+
+**Innovation et Compétences au cœur des entreprises !**
+
+Ce projet, réalisé par ATALLAH Joanne, AUBEL Xavier, COUSTILLAC Cêlestine, EZIN Philia et MADOR Fanis, explore la relation entre innovation et création d'emplois.
+
+
+
+<img src="photos/pi.jpg" alt="Description de l'image" width="800" height="500" style="display: block; margin: 0 auto; border-radius: 10px;">
 
 # Introduction
 
