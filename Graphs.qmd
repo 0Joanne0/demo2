@@ -11,10 +11,6 @@ library(stringr)
 library(ggplot2)
 library(dplyr)
 
-
-
-
-
 base_emp_inno <- read_delim(
   "data/base_emp_inno.csv",  # Path to the CSV file
   delim = ";",              # Delimiter used in the CSV file
@@ -47,7 +43,7 @@ ggplot(skill_innovation, aes(x = reorder(top_skill_req, total_patents),
   geom_bar(stat = "identity", 
            fill = "#406f71") +
   coord_flip() +
-  labs(title = "Compétences les plus associées à l'innovation (au nombre de brevets)",
+  labs(title = "Compétences les plus associées à l'innovation",
        subtitle = "Analyse des compétences en fonction du nombre de brevets déposés",
        x = "",
        y = "Nombre total de Brevets") +
